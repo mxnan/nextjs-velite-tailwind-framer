@@ -3,6 +3,7 @@ import { Anybody as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
+import Header from "@/components/navigation/header";
 
 const sans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,9 +21,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn("relative antialiased font-sans", sans.variable)}>
         <Providers>
-          <main className="relative flex flex-col">
-           {children}
-          </main>
+          <div className="relative container min-h-dvh flex flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+          </div>
         </Providers>
       </body>
     </html>

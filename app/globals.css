@@ -8,3 +8,31 @@
 .dark {
   @apply bg-black text-white;
 }
+
+/* For View transition when theme toggle is clicked */
+
+/* For browsers that don't support View Transitions */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* For browsers that support View Transitions */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+::view-transition-old(root) {
+  animation: 0.5s ease-out both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 0.5s ease-in both fade-in;
+}
+
+/* For View transition when theme toggle is clicked */

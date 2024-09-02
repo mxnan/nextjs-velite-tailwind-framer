@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="flex-1 min-h-dvh flex flex-col items-center justify-center">
+    <section className="w-full">
       <Button>hello</Button>
       <ThemeToggle />
       <Link href="/blogs">Blogs</Link>

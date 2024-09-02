@@ -29,7 +29,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
     notFound();
   }
   return (
-    <section className="min-h-dvh max-w-7xl mx-auto">
+    <section className="w-full max-w-5xl mx-auto">
       <MDXContent code={blog.content} />
     </section>
   );

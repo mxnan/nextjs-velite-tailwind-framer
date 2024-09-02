@@ -9,7 +9,14 @@ const config: Config = {
     "./app/**/*.{ts,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1.5rem",
+    },
     extend: {
+      screens: {
+        sm: "500px",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
