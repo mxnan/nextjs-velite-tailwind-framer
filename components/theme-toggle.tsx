@@ -1,11 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-
 import { Button } from "./ui/button";
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     if (!("startViewTransition" in document)) {
@@ -18,46 +22,57 @@ const ThemeToggle = () => {
     });
   };
 
+  if (!mounted) return null; // Prevent rendering on the server
+
   return (
     <Button
+      variant="outline"
       size={"icon"}
-      variant={"ghost"}
       aria-label="Toggle Dark Mode"
       type="button"
-      className="rounded-full"
       onClick={toggleTheme}
     >
       {theme === "light" ? (
         <svg
-          key="moon"
           xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
-          fill="currentColor"
+          fill="none"
           stroke="currentColor"
-          className="h-6 w-6 "
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
+          <path d="M12 10V2" />
+          <path d="m4.93 10.93 1.41 1.41" />
+          <path d="M2 18h2" />
+          <path d="M20 18h2" />
+          <path d="m19.07 10.93-1.41 1.41" />
+          <path d="M22 22H2" />
+          <path d="m16 6-4 4-4-4" />
+          <path d="M16 18a4 4 0 0 0-8 0" />
         </svg>
       ) : (
         <svg
-          key="sun"
           xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
-          fill="currentColor"
+          fill="none"
           stroke="currentColor"
-          className="h-6 w-6 "
+          strokeWidth="1.25"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
+          <path d="M12 2v8" />
+          <path d="m4.93 10.93 1.41 1.41" />
+          <path d="M2 18h2" />
+          <path d="M20 18h2" />
+          <path d="m19.07 10.93-1.41 1.41" />
+          <path d="M22 22H2" />
+          <path d="m8 6 4-4 4 4" />
+          <path d="M16 18a4 4 0 0 0-8 0" />
         </svg>
       )}
     </Button>

@@ -13,11 +13,10 @@ export function Callout({
   return (
     <div
       className={cn(
-        "my-10 w-full max-w-3xl pr-5 p-3 font-medium text-sm flex items-start rounded-md  border-l-[5px] border-b-[5px] border-gray-300 dark:border-gray-700  bg-stone-50 dark:bg-stone-950",
+        "my-10 w-full max-w-3xl pr-5 p-3 font-medium text-sm flex items-start rounded-md border-l-[5px] border-b-[5px] bg-popover",
         {
-          " text-white bg-red-500 dark:bg-red-900": type === "danger",
-          " bg-yellow-300 dark:bg-orange-600":
-            type === "warning",
+          " text-secondary bg-destructive": type === "danger",
+          " bg-ring text-secondary": type === "warning",
         }
       )}
       {...props}
