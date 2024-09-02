@@ -20,9 +20,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn("relative antialiased font-sans", sans.variable)}>
         <Providers>
+          <main className="relative flex flex-col">
            {children}
+          </main>
         </Providers>
-       
       </body>
     </html>
   );

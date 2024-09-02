@@ -4,8 +4,114 @@ description: test description
 summary: test summary
 date: "2024-08-15"
 status: "published"
-image : https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-tags : ["test","test"]
+image: https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+tags: ["test", "test"]
 ---
 
-# Test 
+---
+
+# H1 heading
+
+---
+
+## H2 heading
+
+---
+
+### H3 heading
+
+---
+
+#### H4 heading
+
+---
+
+##### H5 heading
+
+---
+
+###### H6 heading
+
+---
+
+## P tag
+
+Lorem ipsum dolor jsnajn dasnhd adjsn
+
+---
+
+## Blockquote
+
+> Blockquote
+
+---
+
+## List
+
+1. Orderded list
+2. Orderded list
+3. Orderded list
+
+- Lorem ipsum
+- Lorem ipsum
+- Lorem ipsum
+
+* list
+* list
+* list
+
+---
+
+## Callout
+
+<Callout>Default</Callout>
+<Callout type="warning">Warning</Callout>
+<Callout type="danger">Danger</Callout>
+
+---
+
+## Steps
+
+### Lorem ipsum
+
+<Steps>
+
+<Step className="text-sm font-medium">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+</Step>
+
+<Step className="text-sm font-medium">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+</Step>
+
+</Steps>
+
+---
+
+## Tables
+
+You can create tables by assembling a list of words and dividing them with hyphens `-` (for the first row), and then separating each column with a pipe `|`:
+
+| First Header                | Second Header                |
+| --------------------------- | ---------------------------- |
+| Content from cell 1         | Content from cell 2          |
+| Content in the first column | Content in the second column |
+
+---
+
+## Pre and code
+
+```js
+import { useFloating } from "@floating-ui/react";
+
+function MyComponent() {
+  const { refs, floatingStyles } = useFloating();
+
+  return (
+    <>
+      <div ref={refs.setReference} />
+      <div ref={refs.setFloating} style={floatingStyles} />
+    </>
+  );
+}
+```

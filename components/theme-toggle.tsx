@@ -33,9 +33,9 @@ const ThemeToggle = () => {
 
   //animation for framermotion on svg entry and exit
   const iconVariants = {
-    initial: { y: -30, x: 0, opacity: 0, transition: { duration: 0.2 } },
-    exit: { y: 0, x: 30, opacity: 0, transition: { duration: 0.2 } },
-    enter: { y: 0, x: 0, opacity: 1, transition: { duration: 0.2 } },
+    initial: { y: -30, x: 0, opacity: 0, transition: { duration: 0.4 } },
+    exit: { y: 0, x: 30, opacity: 0, transition: { duration: 0.4 } },
+    enter: { y: 0, x: 0, opacity: 1, transition: { duration: 0.4 } },
   };
 
   return (
@@ -65,7 +65,6 @@ const ThemeToggle = () => {
               animate="enter"
               exit="exit"
               variants={iconVariants}
-              transition={{ duration: 0.2 }}
             >
               <path
                 strokeLinecap="round"
@@ -86,7 +85,6 @@ const ThemeToggle = () => {
               animate="enter"
               exit="exit"
               variants={iconVariants}
-              transition={{ duration: 0.2 }}
             >
               <path
                 strokeLinecap="round"

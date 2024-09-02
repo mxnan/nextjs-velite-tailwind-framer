@@ -1,4 +1,6 @@
 import { blogs } from "#site/content";
+import { MDXContent } from "@/components/mdx/mdx-components";
+
 import { notFound } from "next/navigation";
 
 interface BlogPageProps {
@@ -27,8 +29,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
     notFound();
   }
   return (
-    <section className="flex-1 min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-5xl">{blog?.title}</h1>
+    <section className="min-h-dvh max-w-7xl mx-auto">
+      <MDXContent code={blog.content} />
     </section>
   );
 }
