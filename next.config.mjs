@@ -3,10 +3,20 @@ import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
 export default {
-  // othor next config here...
   webpack: (config) => {
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
+  },
+  // othor next config here...
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
 };
 
