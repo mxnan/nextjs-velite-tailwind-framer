@@ -3,6 +3,24 @@ export const siteConfig = {
   description: "My personal website with Next.js and Tailwind CSS.",
   url: "https://mxnan.com",
   author: "@mxnan",
+  topNavLinks: [
+    {
+      label: "Home",
+      href: "/",
+    },
+    {
+      label: "Blogs",
+      href: "/blogs",
+    },
+    {
+      label: "Components",
+      href: "/components",
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+    },
+  ],
   links: {
     twitter: "https://twitter.com/mxnan",
     github: "https://github.com/mxnan",
