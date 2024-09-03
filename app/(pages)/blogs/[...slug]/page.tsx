@@ -1,5 +1,6 @@
 import { blogs } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
+import { cn } from "@/lib/utils";
 
 import { notFound } from "next/navigation";
 
@@ -30,7 +31,14 @@ export default async function BlogPage({ params }: BlogPageProps) {
   }
   return (
     <section className="w-full max-w-5xl mx-auto">
-      <MDXContent code={blog.content} />
+      <div
+        className={cn(
+          "w-full max-w-4xl",
+          blog.status === "draft" && "opacity-30"
+        )}
+      >
+        <MDXContent code={blog.content} />
+      </div>
     </section>
   );
 }
