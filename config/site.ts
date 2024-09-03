@@ -22,7 +22,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/mxnan",
+    twitter: "https://twitter.com/etc_etcx",
     github: "https://github.com/mxnan",
     linkedin: "https://www.linkedin.com/in/mxnan/",
   },
