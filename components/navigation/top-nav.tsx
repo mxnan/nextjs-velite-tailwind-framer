@@ -2,30 +2,47 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-import { Icons } from "../icons";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { buttonVariants } from "../ui/button";
+import { Icons } from "../icons";
+import ThemeToggle from "../theme-toggle";
 
 export default function TopNav() {
   return (
-    <nav className="flex items-center space-x-4 lg:space-x-6">
-      <Link
-        href="/"
-        className={cn(
-          "flex-1",
-          buttonVariants({ variant: "ghost", size: "icon" })
-        )}
-      >
-        <Icons.logo className="h-6 w-6" />
-        <span className="sr-only">{siteConfig.name}</span>
-      </Link>
+    <nav className="w-full flex items-center justify-between max-md:hidden">
       <div className="flex items-center">
         {siteConfig.topNavLinks.slice(1).map((link, index: number) => (
           <TopNavLinks key={link.label} index={index} link={link} />
         ))}
+      </div>
+
+      <div className="flex items-center">
+        <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
+          <div
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "w-10 pb-1 px-0 "
+            )}
+          >
+            <Icons.twitter className="h-5 w-5" />
+            <span className="sr-only">Twitter</span>
+          </div>
+        </Link>
+        <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+          <div
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "w-10 pb-1 px-0 "
+            )}
+          >
+            <Icons.gitHub className="h-5 w-5" />
+            <span className="sr-only">GitHub</span>
+          </div>
+        </Link>
+        <ThemeToggle />
       </div>
     </nav>
   );
@@ -71,7 +88,7 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
       </AnimatePresence>
       <span
         className={cn(
-          "text-foreground text-[15px] font-semibold",
+          "max-md:text-sm font-bold",
           pathname === link.href ? "text-primary" : "text-foreground/60"
         )}
       >

@@ -1,11 +1,11 @@
 import React from "react";
-import ThemeToggle from "../theme-toggle";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import TopNav from "./top-nav";
+import MobileNav from "./mobile-nav";
 
 export default function Header() {
   return (
@@ -15,35 +15,21 @@ export default function Header() {
       supports-[backdrop-filter]:bg-background/60"
     >
       <nav className="h-14 flex items-center justify-between">
-        <TopNav />
-        <div>
-          <Link
-            href={siteConfig.links.twitter}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                "w-10 pb-1 px-0"
-              )}
-            >
-              <Icons.twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </div>
-          </Link>
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-            <div
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                "w-10 pb-1 px-0"
-              )}
-            >
-              <Icons.gitHub className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </div>
-          </Link>
-          <ThemeToggle />
+        <Link
+          href="/"
+          className={cn(
+            "mr-4",
+            buttonVariants({ variant: "ghost", size: "icon" })
+          )}
+        >
+          <Icons.logo className="h-6 w-6" />
+          <span className="sr-only">{siteConfig.name}</span>
+        </Link>
+        <TopNav /> 
+        
+        <div className="md:hidden">
+         
+          <MobileNav />
         </div>
       </nav>
     </header>
