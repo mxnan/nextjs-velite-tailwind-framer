@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
+import TopNav from "./top-nav";
 
 export default function Header() {
   return (
@@ -14,17 +15,7 @@ export default function Header() {
       supports-[backdrop-filter]:bg-background/60"
     >
       <nav className="h-14 flex items-center justify-between">
-        <div>
-          {siteConfig.topNavLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="px-3 py-2 font-medium text-sm"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        <TopNav />
         <div>
           <Link
             href={siteConfig.links.twitter}
