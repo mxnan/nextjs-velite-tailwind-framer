@@ -135,7 +135,7 @@ export const basecomponents = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <CustomLink
       className={cn(
-        "font-semibold text-gray-500 dark:text-gray-600 custom-underline mx-1 pb-2 text-sm",
+        "font-semibold text-primary/60 mx-1 pb-2 text-sm",
         className
       )}
       {...props}

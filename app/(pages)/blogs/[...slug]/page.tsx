@@ -1,7 +1,7 @@
 import { blogs } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
 import { cn } from "@/lib/utils";
-
+import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
 
 interface BlogPageProps {

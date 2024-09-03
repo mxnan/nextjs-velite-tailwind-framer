@@ -15,8 +15,8 @@ export function Callout({
       className={cn(
         "my-10 w-full max-w-3xl pr-5 p-3 font-medium text-sm flex items-start rounded-md border-l-[5px] border-b-[5px] bg-popover",
         {
-          " text-secondary bg-destructive": type === "danger",
-          " bg-ring text-secondary": type === "warning",
+          " text-secondary bg-destructive dark:text-primary": type === "danger",
+          " bg-yellow-400 text-primary": type === "warning",
         }
       )}
       {...props}
