@@ -3,9 +3,19 @@ import BlogCard from "@/components/blog-card";
 
 import { FadeText } from "@/components/mdx/fade-text";
 import { sortBlogs } from "@/lib/utils";
+import { Metadata } from "next";
 
 import React from "react";
 
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Blogs",
+    description: "Writing some blogs to showcase my learning and findings",
+    alternates: {
+      canonical: `https://mxnan.com/blogs`,
+    },
+  };
+}
 export default async function BlogsPage() {
   const sortedBlogs = sortBlogs(blogs.filter((blog) => blog));
   const displayBlogs = sortedBlogs;

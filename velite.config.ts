@@ -21,6 +21,7 @@ const blogs = defineCollection({
       status: s.enum(["published", "draft"]).default("draft"),
       image: s.string().optional(),
       tags: s.string().array().optional(),
+      toc: s.toc(),
       content: s.mdx(),
     })
     .transform(computedFields),
