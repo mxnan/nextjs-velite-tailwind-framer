@@ -17,12 +17,24 @@ const config: Config = {
       },
     },
     extend: {
+      //////
+      animation: {
+        grid: "grid 15s linear infinite",
+      },
+      keyframes: {
+        grid: {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      ///////
       screens: {
         sm: "500px",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      //////
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

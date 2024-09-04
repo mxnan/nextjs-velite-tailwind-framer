@@ -4,6 +4,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import { useMounted } from "@/hooks/use-mounted";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface TocEntry {
   items?: TocEntry[];
@@ -89,19 +90,37 @@ interface TreeProps {
 
 function Tree({ tree, level = 1, activeItem }: TreeProps) {
   return tree.length && level < 3 ? (
-    <ul className={cn("m-0 list-none", { "pl-4": level !== 1 })}>
+    <ul className={cn("m-0 list-none", { "pl-3": level !== 1 })}>
       {tree.map((item, index) => {
         return (
           <li key={index} className={cn("mt-0 pt-2")}>
             <a
               href={item.url}
               className={cn(
-                "inline-block pl-2 text-sm",
+                "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out",
                 item.url === `#${activeItem}`
-                  ? "text-primary font-normal border-l-4"
-                  : "text-primary/50 "
+                  ? "text-primary"
+                  : "text-primary/50"
               )}
             >
+              <AnimatePresence>
+                {item.url === `#${activeItem}` && (
+                  <motion.span
+                    key="activeItem"
+                    layoutId="activeItem"
+                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-blue-500"
+                    initial={{ opacity: 0.3 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0.3 }}
+                    transition={{
+                      type: "tween",
+                      duration: 0.3,
+                      stiffness: 200,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </AnimatePresence>
               {item.title}
             </a>
             {item.items?.length ? (

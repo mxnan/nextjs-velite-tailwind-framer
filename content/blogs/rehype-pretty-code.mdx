@@ -8,6 +8,24 @@ image: https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&
 tags: ["mdx", "rehype"]
 ---
 
+<FadeText
+  text="Rehype pretty code"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10 tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold "
+/>
+
+Fully test the capabilities of rehype pretty code and see what can i do with it
+
+
 [rehype-pretty-code](https://github.com/atomiks/rehype-pretty-code) is a Rehype plugin powered by the
 [shiki](https://github.com/shikijs/shiki) syntax highlighter that provides beautiful code blocks for Markdown or MDX. It works on both the server at build-time (avoiding runtime syntax highlighting) and on the client for dynamic highlighting.
 
@@ -73,7 +91,7 @@ Inline ANSI: `> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m{:ansi}`
 
 ---
 
-### Kitchen Sink Meta Strings
+## Kitchen Sink Meta Strings
 
 ```js showLineNumbers {2-4} title="isEven.js" /console/ caption="Im a caption"
 function isEven(number) {

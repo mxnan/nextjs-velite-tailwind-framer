@@ -1,12 +1,29 @@
 ---
 title: test
 description: test description
-summary: test summary
+summary: Lorem ipsum odor amet, consectetuer adipiscing elit. Felis consectetur suspendisse sollicitudin ullamcorper primis cubilia mi. 
 date: "2024-08-15"
 status: "published"
 image: https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 tags: ["test", "mdx"]
 ---
+
+<FadeText
+  text="Base Components Gist"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+Showing all base mdx components here, as i did not want to use prose classes , so i defined all my base components in mdx-base.tsx
 
 ---
 
@@ -102,7 +119,7 @@ You can create tables by assembling a list of words and dividing them with hyphe
 
 ## Pre and code
 
-```js
+```js showLineNumbers {8-9} title="floating.js" caption="this is caption"
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {

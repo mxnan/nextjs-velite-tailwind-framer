@@ -43,7 +43,7 @@ export default defineConfig({
       [
         rehypePrettyCode,
         {
-          theme: "tokyo-night",
+          theme: "one-dark-pro",
         },
       ],
       [

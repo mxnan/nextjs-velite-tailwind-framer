@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Header from "@/components/navigation/header";
+import Footer from "@/components/navigation/footer";
 
 const sans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -73,8 +74,9 @@ export default function RootLayout({
         <Providers>
           <div className="relative container min-h-dvh flex flex-col">
             <Header />
-            <main className="flex-1 pt-10">{children}</main>
+            <main className="flex-1 py-10">{children}</main>
           </div>
+          <Footer />
         </Providers>
       </body>
     </html>
