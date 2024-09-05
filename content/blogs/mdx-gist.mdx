@@ -1,11 +1,10 @@
 ---
 title: MDX gist
-description: Base MDX  Components
-summary: Lorem ipsum odor amet, consectetuer adipiscing elit. Felis consectetur suspendisse sollicitudin ullamcorper primis cubilia mi.
+description: Storing all mdx components used in this app, with proper use cases .
 date: "2024-08-15"
 status: "published"
 image: https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-tags: ["test", "mdx"]
+tags: ["gist", "mdx"]
 ---
 
 <FadeText
@@ -28,11 +27,10 @@ Showing all base mdx components here, as i did not want to use prose classes , s
 
 # Base MDX
 
----
 
 #  H1 
 
-##  H2 
+##  lorem ipsum dolor set anquiteres .
 
 ###  lorem ipsum dolor set anquiteres .
 
@@ -50,7 +48,11 @@ Showing all base mdx components here, as i did not want to use prose classes , s
 
 Lorem ipsum dolor jsnajn dasnhd adjsn
 
+## Links
 
+- [Home](/#) Link tag (internal)
+
+- [Shadcn](https://ui.shadcn.com/docs/components/sonner) a tag (external)
 
 ## Blockquote
 
@@ -119,7 +121,9 @@ You can create tables by assembling a list of words and dividing them with hyphe
 
 ## Pre and code
 
-> Base highlighting through rehype-pretty-code
+Syntax highlighting from rehype-pretty-code and shiki , using in velite.config.ts .
+
+> Collapsible codeblock for extra long codeblocks
 
 <CollapsibleCodeBlock>
 ```js showLineNumbers {8-9} 
@@ -138,7 +142,7 @@ function MyComponent() {
 ```
 </CollapsibleCodeBlock>
 
-> Collapsible codeblock for extra long codeblocks 
+> 
 
 ```tsx {4}  showLineNumbers
 // @components/mdx/collapsible-codeblock.tsx
@@ -155,20 +159,48 @@ function MyComponent() {
 
 # Custom MDX
 
----
 
 ## Fade Text
 
 ###### Can use for all directions and add framerprops acc to usage .
 
-> Using at the top for showing page title
+> Using at the top for showing page title with entry animations
 
 
 ## Cards
 
+> Grid layout here
 
+<div className="grid sm:grid-cols-2 gap-4 mt-6">
+
+<MdxCard href="/#">
+
+### Home
+
+> The Home Page
+
+</MdxCard>
+
+<MdxCard href="/blogs" >
+
+### Blogs
+
+`Just an example of cards`
+
+</MdxCard>
+
+<MdxCard href="/components" >
+
+### Components
+
+- The Component page .
+
+</MdxCard>
+</div>
 
 ## Component preview
+
+> for displaying component preview and their code 
 
 <Tabs defaultValue="preview" className="my-6">
 <TabsList>

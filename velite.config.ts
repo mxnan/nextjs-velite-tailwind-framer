@@ -16,7 +16,6 @@ const blogs = defineCollection({
       slug: s.path(),
       title: s.string().max(20),
       description: s.string().max(99).optional(),
-      summary: s.string().max(200).optional(),
       date: s.isodate(),
       status: s.enum(["published", "draft"]).default("draft"),
       image: s.string().optional(),
@@ -43,7 +42,7 @@ export default defineConfig({
       [
         rehypePrettyCode,
         {
-          theme: "one-dark-pro",
+          theme: "vitesse-black",
         },
       ],
       [

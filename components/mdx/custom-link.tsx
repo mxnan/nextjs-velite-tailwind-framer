@@ -6,7 +6,7 @@ const CustomLink = ({...props}: any) => {
 
   if (href.startsWith("/")) {
     return (
-      <Link {...props} href={href}>
+      <Link {...props} href={href} >
         {props.children}
       </Link>
     );

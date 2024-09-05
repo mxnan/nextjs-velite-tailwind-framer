@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ClipboardCopy, Check } from "lucide-react";
 import { Icons } from "../icons";
 
 interface PreProps extends React.HTMLAttributes<HTMLPreElement> {

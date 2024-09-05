@@ -5,6 +5,7 @@ import { FadeText } from "./fade-text";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CollapsibleCodeBlock } from "./collapsible-codeblock";
 import ComponentPreview from "./component-preview";
+import { MdxCard } from "./mdx-card";
 
 const sharedComponents = {
   // Add your base components here
@@ -18,6 +19,7 @@ const sharedComponents = {
   TabsTrigger,
   ComponentPreview,
   CollapsibleCodeBlock,
+  MdxCard,
 };
 
 // parse the Velite generated MDX code into a React component function

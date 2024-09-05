@@ -55,8 +55,8 @@ export default async function BlogsPage() {
                     lg:grid-cols-2
                     justify-items-center content-center"
           >
-            {displayBlogs?.map((blog) => (
-              <BlogCard key={blog.slug} {...blog} />
+            {displayBlogs?.map((blog, index) => (
+              <BlogCard key={blog.slug} index={index} {...blog}  />
             ))}
           </div>
         )}
