@@ -16,11 +16,7 @@ export const metadata: Metadata = {
   description: `Creating in public with some blogs 
   and creating  custom react components for usage.
    Using Nextjs, Tailwind, Velite, Framer-motion and more.`,
-  icons: {
-    icon: "./favicon32.png",
-    shortcut: "./favicon16.png",
-    apple: "./favicon32.png",
-  },
+  
   metadataBase: new URL("https://mxnan.com"),
   openGraph: {
     type: "website",

@@ -1,7 +1,7 @@
 ---
-title: test
-description: test description
-summary: Lorem ipsum odor amet, consectetuer adipiscing elit. Felis consectetur suspendisse sollicitudin ullamcorper primis cubilia mi. 
+title: MDX gist
+description: Base MDX  Components
+summary: Lorem ipsum odor amet, consectetuer adipiscing elit. Felis consectetur suspendisse sollicitudin ullamcorper primis cubilia mi.
 date: "2024-08-15"
 status: "published"
 image: https://images.unsplash.com/photo-1724786594301-9a00b6ee8704?q=80&w=2095&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
@@ -27,7 +27,11 @@ Showing all base mdx components here, as i did not want to use prose classes , s
 
 ---
 
-# H1 heading
+# Base MDX
+
+---
+
+# H1 Heading
 
 ---
 
@@ -119,7 +123,7 @@ You can create tables by assembling a list of words and dividing them with hyphe
 
 ## Pre and code
 
-```js showLineNumbers {8-9} title="floating.js" caption="this is caption"
+```js showLineNumbers {8-9} title="app/floating.js"
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
@@ -133,3 +137,49 @@ function MyComponent() {
   );
 }
 ```
+
+---
+
+# Custom MDX
+
+---
+
+## Fade Text
+
+###### Can use for all directions and add framerprops acc to usage .
+
+> Using at the start for showing page title
+
+---
+## Component preview
+
+<Tabs defaultValue="preview" className="my-6">
+  <TabsList>
+    <TabsTrigger value="preview">Preview</TabsTrigger>
+    <TabsTrigger value="code">Code</TabsTrigger>
+  </TabsList>
+  <TabsContent value="preview">
+  <ComponentPreview />
+  </TabsContent>
+  <TabsContent value="code">
+  <CollapsibleCodeBlock>
+  ```js {4} showLineNumbers
+import { useFloating } from "@floating-ui/react";
+
+function MyComponent() {
+const { refs, floatingStyles } = useFloating();
+
+return (
+
+<>
+  <div ref={refs.setReference} />
+  <div ref={refs.setFloating} style={floatingStyles} />
+</>
+); }
+
+```
+</CollapsibleCodeBlock>
+ </TabsContent>
+</Tabs>
+
+---

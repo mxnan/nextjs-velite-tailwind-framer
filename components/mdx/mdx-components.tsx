@@ -2,6 +2,9 @@ import * as runtime from "react/jsx-runtime";
 import { basecomponents } from "./base-mdx";
 import { Callout } from "./callout";
 import { FadeText } from "./fade-text";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CollapsibleCodeBlock } from "./collapsible-codeblock";
+import ComponentPreview from "./component-preview";
 
 const sharedComponents = {
   // Add your base components here
@@ -9,6 +12,12 @@ const sharedComponents = {
   // Add your custom components here
   Callout,
   FadeText,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  ComponentPreview,
+  CollapsibleCodeBlock,
 };
 
 // parse the Velite generated MDX code into a React component function

@@ -33,7 +33,9 @@
 [data-rehype-pretty-code-figure] [data-chars-id] {
   @apply border-b-2 p-1 shadow-none;
 }
-
+[data-rehype-pretty-code-figure] [data-rehype-pretty-code-title] {
+  @apply my-3 font-semibold font-mono text-primary/50 pl-3 border-l-4 border-blue-500;
+} 
 .subheading-anchor {
-  @apply no-underline hover:underline;
+  @apply relative;
 }

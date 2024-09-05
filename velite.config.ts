@@ -49,7 +49,7 @@ export default defineConfig({
       [
         rehypeAutoLinkHeadings,
         {
-          behavior: "after",
+          behavior: ":wrap",
           properties: {
             className: ["subheading-anchor"],
             ariaLabel: "Link to section",
