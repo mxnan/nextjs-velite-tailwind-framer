@@ -13,10 +13,7 @@ const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center">
-    <span className={cn(buttonVariants({ variant: "ghost", size: "icon" }))}>
-      <Icons.terminal className="w-7 h-7" />
-    </span>
+
     <TabsPrimitive.List
       ref={ref}
       className={cn(
@@ -25,7 +22,7 @@ const TabsList = React.forwardRef<
       )}
       {...props}
     />
-  </div>
+ 
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
@@ -36,7 +33,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-all duration-300 ease-in-out data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
+      "border-b-4 border-b-transparent bg-transparent px-3 pb-2 pt-2 font-semibold text-muted-foreground shadow-none transition-all duration-300 ease-in-out data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
       className
     )}
     {...props}

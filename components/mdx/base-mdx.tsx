@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import React, { HTMLAttributes } from "react";
 import CustomLink from "./custom-link";
+import Pre from "./pre-with-copy";
 
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
@@ -8,7 +9,7 @@ export const basecomponents = {
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1
       className={cn(
-        "mt-2 scroll-m-20 text-4xl font-bold text-primary tracking-tight",
+        "mt-12 scroll-m-32 text-4xl font-bold text-primary  tracking-tight",
         className
       )}
       {...props}
@@ -17,7 +18,7 @@ export const basecomponents = {
   h2: ({ className, ...props }: ComponentsProps) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-20 pb-1 text-3xl font-semibold text-primary tracking-tight first:mt-0",
+        "mt-10 scroll-m-32 pb-1 text-3xl font-semibold text-primary tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -26,7 +27,7 @@ export const basecomponents = {
   h3: ({ className, ...props }: ComponentsProps) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 text-2xl font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-2xl font-semibold text-primary tracking-tight",
         className
       )}
       {...props}
@@ -35,7 +36,7 @@ export const basecomponents = {
   h4: ({ className, ...props }: ComponentsProps) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 text-xl font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-xl font-semibold text-primary tracking-tight",
         className
       )}
       {...props}
@@ -44,7 +45,7 @@ export const basecomponents = {
   h5: ({ className, ...props }: ComponentsProps) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 text-lg font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-lg font-semibold text-primary tracking-tight",
         className
       )}
       {...props}
@@ -53,7 +54,7 @@ export const basecomponents = {
   h6: ({ className, ...props }: ComponentsProps) => (
     <h6
       className={cn(
-        "mt-8 scroll-m-20 text-base font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-base font-semibold text-primary tracking-tight",
         className
       )}
       {...props}
@@ -115,15 +116,7 @@ export const basecomponents = {
       {...props}
     />
   ),
-  pre: ({ className, ...props }: ComponentsProps) => (
-    <pre
-      className={cn(
-        "mb-4 mt-6 overflow-x-auto text-sm  rounded-lg border py-4",
-        className
-      )}
-      {...props}
-    />
-  ),
+  pre: Pre, // using as pre-with-copy for copy button functions
   code: ({ className, ...props }: ComponentsProps) => (
     <code
       className={cn(
@@ -145,7 +138,7 @@ export const basecomponents = {
   ),
   /////// steps
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
-    <h3 className={cn("my-8 scroll-m-20 ", className)} {...props} />
+    <h3 className={cn("my-8 scroll-m-32 ", className)} {...props} />
   ),
   Steps: ({ ...props }: React.ComponentProps<"div">) => (
     <div

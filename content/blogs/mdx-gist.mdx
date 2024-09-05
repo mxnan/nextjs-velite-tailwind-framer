@@ -25,47 +25,38 @@ tags: ["test", "mdx"]
 
 Showing all base mdx components here, as i did not want to use prose classes , so i defined all my base components in mdx-base.tsx
 
----
 
 # Base MDX
 
 ---
 
-# H1 Heading
+#  H1 
 
----
+##  H2 
 
-## H2 heading
+###  lorem ipsum dolor set anquiteres .
 
----
 
-### H3 heading
+####  lorem ipsum dolor set anquiteres .
 
----
 
-#### H4 heading
+#####  lorem ipsum dolor set anquiteres .
 
----
 
-##### H5 heading
+######  lorem ipsum dolor set anquiteres .
 
----
-
-###### H6 heading
-
----
 
 ## P tag
 
 Lorem ipsum dolor jsnajn dasnhd adjsn
 
----
+
 
 ## Blockquote
 
 > Blockquote
 
----
+
 
 ## List
 
@@ -73,15 +64,18 @@ Lorem ipsum dolor jsnajn dasnhd adjsn
 2. Orderded list
 3. Orderded list
 
-- Lorem ipsum
-- Lorem ipsum
-- Lorem ipsum
+---
 
-* list
-* list
-* list
+- Lorem ipsum
+- Lorem ipsum
+- Lorem ipsum
 
 ---
+
+* list
+* list
+* list
+
 
 ## Callout
 
@@ -89,7 +83,7 @@ Lorem ipsum dolor jsnajn dasnhd adjsn
 <Callout type="warning">Warning</Callout>
 <Callout type="danger">Danger</Callout>
 
----
+
 
 ## Steps
 
@@ -107,23 +101,28 @@ Lorem ipsum dolor jsnajn dasnhd adjsn
 
 </Steps>
 
----
+
 
 ## Tables
 
 You can create tables by assembling a list of words and dividing them with hyphens `-` (for the first row), and then separating each column with a pipe `|`:
 
-| Props     | Description     |
-| --------- | --------------- |
-| Size      | give size       |
-| className | give classnames |
-| variant   | give variants   |
+| Wrestler                | Origin       | Finisher           |
+| ----------------------- | ------------ | ------------------ |
+| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
+| Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
+| Randy Savage            | Sarasota, FL | Elbow Drop         |
+| Vader                   | Boulder, CO  | Vader Bomb         |
+| Razor Ramon             | Chuluota, FL | Razor's Edge       |
 
----
+
 
 ## Pre and code
 
-```js showLineNumbers {8-9} title="app/floating.js"
+> Base highlighting through rehype-pretty-code
+
+<CollapsibleCodeBlock>
+```js showLineNumbers {8-9} 
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
@@ -137,8 +136,22 @@ function MyComponent() {
   );
 }
 ```
+</CollapsibleCodeBlock>
 
----
+> Collapsible codeblock for extra long codeblocks 
+
+```tsx {4}  showLineNumbers
+// @components/mdx/collapsible-codeblock.tsx
+
+<CollapsibleCodeBlock>
+   {children}
+</CollapsibleCodeBlock>
+
+// used to wrap pre and code block to create a collapsible
+// used directly in mdx files, to give children as base syntax tags
+```
+
+
 
 # Custom MDX
 
@@ -148,38 +161,44 @@ function MyComponent() {
 
 ###### Can use for all directions and add framerprops acc to usage .
 
-> Using at the start for showing page title
+> Using at the top for showing page title
 
----
+
+## Cards
+
+
+
 ## Component preview
 
 <Tabs defaultValue="preview" className="my-6">
-  <TabsList>
-    <TabsTrigger value="preview">Preview</TabsTrigger>
-    <TabsTrigger value="code">Code</TabsTrigger>
-  </TabsList>
-  <TabsContent value="preview">
-  <ComponentPreview />
-  </TabsContent>
-  <TabsContent value="code">
-  <CollapsibleCodeBlock>
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview />
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
   ```js {4} showLineNumbers
-import { useFloating } from "@floating-ui/react";
+        import { useFloating } from "@floating-ui/react";
 
-function MyComponent() {
-const { refs, floatingStyles } = useFloating();
+        function MyComponent() {
+        const { refs, floatingStyles } = useFloating();
 
-return (
+        return (
 
-<>
-  <div ref={refs.setReference} />
-  <div ref={refs.setFloating} style={floatingStyles} />
-</>
-); }
+        <>
+          <div ref={refs.setReference} />
+          <div ref={refs.setFloating} style={floatingStyles} />
+        </>
+        ); }
 
 ```
 </CollapsibleCodeBlock>
- </TabsContent>
+</TabsContent>
 </Tabs>
 
----
+
+
+

@@ -74,7 +74,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
         <MDXContent code={blog.content} />
       </div>
       <div className="hidden 2xl:block ">
-        <div className="fixed top-36 left-[calc(50%+30rem)] -mt-10  overflow-y-auto pt-10">
+        <div className="fixed top-36 left-[calc(50%+30rem)] -mt-10 h-full  overflow-y-auto pt-10">
           <DashboardTableOfContents toc={blog.toc} />
         </div>
       </div>
