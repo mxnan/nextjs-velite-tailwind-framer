@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Icons } from "../icons";
+import { toast } from "sonner";
 
 interface PreProps extends React.HTMLAttributes<HTMLPreElement> {
   className?: string;
@@ -37,6 +38,8 @@ const Pre: React.FC<PreProps> = ({ children, className, ...props }) => {
       : extractTextContent(children);
 
     navigator.clipboard.writeText(textContent).then(() => setIsCopied(true));
+
+    toast.success("Copied to clipboard");
   };
 
   return (

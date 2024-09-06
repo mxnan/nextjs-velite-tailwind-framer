@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/navigation/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const sans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -73,6 +74,7 @@ export default function RootLayout({
             <main className="flex-1 py-10">{children}</main>
           </div>
           <Footer />
+          <Toaster />
         </Providers>
       </body>
     </html>

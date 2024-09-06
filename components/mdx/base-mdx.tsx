@@ -85,7 +85,7 @@ export const basecomponents = {
     />
   ),
   hr: ({ ...props }) => (
-    <hr className="my-4 h-1 bg-muted max-w-sm md:my-8" {...props} />
+    <hr className="my-4 h-[1px] max-w-sm md:my-8 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">

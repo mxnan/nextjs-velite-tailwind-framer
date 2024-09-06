@@ -21,8 +21,8 @@ export default async function BlogsPage() {
   const displayBlogs = sortedBlogs;
   return (
     <section
-      className="w-full relative max-w-4xl mx-auto flex-1 lg:flex max-lg:space-y-32 
-  py-12 md:border-b"
+      className="w-full relative max-w-4xl mx-auto flex-1 max-lg:space-y-32 
+  py-12 "
     >
       {/* BlogCards div */}
       <div className="flex-1 h-max flex flex-col gap-8 ">
@@ -61,6 +61,7 @@ export default async function BlogsPage() {
           </div>
         )}
       </div>
+      <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
     </section>
   );
 }
