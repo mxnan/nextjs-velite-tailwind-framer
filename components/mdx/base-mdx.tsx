@@ -120,7 +120,7 @@ export const basecomponents = {
   code: ({ className, ...props }: ComponentsProps) => (
     <code
       className={cn(
-        "relative rounded border px-[0.3rem] py-[0.2rem]  font-mono font-medium !text-sm",
+        "relative rounded  px-[0.3rem] py-[0.2rem]  font-mono font-medium !text-sm",
         className
       )}
       {...props}

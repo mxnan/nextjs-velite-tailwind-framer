@@ -1,0 +1,40 @@
+---
+title: Shine 
+description: Button shine 
+category: buttons
+tags: ["buttons", "shine"]
+---
+
+# Shine
+
+## Component preview
+
+> for displaying component preview and their code
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview />
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```js {4} showLineNumbers
+import { useFloating } from "@floating-ui/react";
+
+function MyComponent() {
+const { refs, floatingStyles } = useFloating();
+
+return (
+
+<>
+  <div ref={refs.setReference} />
+  <div ref={refs.setFloating} style={floatingStyles} />
+</>
+); }
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>

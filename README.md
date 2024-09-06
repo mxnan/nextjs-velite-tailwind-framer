@@ -4,8 +4,6 @@
 
 Blogs frontmatter example
 
----
-
 - title: test
 - description: test description
 - summary: test summary
@@ -14,4 +12,11 @@ Blogs frontmatter example
 - image : url from unsplash
 - tags : ["test","test"]
 
----
+## Components
+
+Components frontmatter example
+
+- title: Shine
+- description: Button shine
+- category: buttons
+- tags: ["buttons", "shine"]
