@@ -68,6 +68,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .custom-underline {
+    @apply hover:bg-[url('/underline.svg')] dark:hover:bg-[url('/underline-dark.svg')];
+  }
 }
 
 /* For View transition when theme toggle is clicked */

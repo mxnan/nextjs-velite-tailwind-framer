@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:ev="http://www.w3.org/2001/xml-events"
+  xmlns:xlink="http://www.w3.org/1999/xlink" id="squiggle-link" viewBox="0 0 8 20">
+  <path fill="none" width="4" stroke="#4b5563" stroke-width="1" d="M0,17.5 c 2.5,0,2.5,-1.5,5,-1.5 s 2.5,1.5,5,1.5 c 2.5,0,2.5,-1.5,5,-1.5 s 2.5,1.5,5,1.5" class="squiggle" />
+</svg>
