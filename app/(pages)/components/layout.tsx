@@ -1,5 +1,6 @@
 import ProgressBar from "@/components/mdx/progress-bar";
 import dynamic from "next/dynamic";
+import "@/styles/mdx.css";
 
 const DynamicResponsiveSidebar = dynamic(
   () => import("@/components/navigation/responsive-sidebar"),

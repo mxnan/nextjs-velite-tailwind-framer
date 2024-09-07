@@ -208,24 +208,26 @@ function MyComponent() {
 <TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 <TabsContent value="preview">
-<ComponentPreview />
+<ComponentPreview path="spin" category="loaders" usingCN />
 </TabsContent>
 <TabsContent value="code">
 <CollapsibleCodeBlock>
-  ```js {4} showLineNumbers
-        import { useFloating } from "@floating-ui/react";
+```tsx {6-10} showLineNumbers
+import React from "react";
 
-        function MyComponent() {
-        const { refs, floatingStyles } = useFloating();
+const SpinDemo = () => {
+  return (
+    <section className="w-full h-72 flex items-center justify-center relative">
+      <div className="absolute inset-x-1/2 inset-y-1/2 h-6 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-8 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-10 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-12 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-6 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+    </section>
+  );
+};
 
-        return (
-
-        <>
-          <div ref={refs.setReference} />
-          <div ref={refs.setFloating} style={floatingStyles} />
-        </>
-        ); }
-
+export default SpinDemo;
 ```
 </CollapsibleCodeBlock>
 </TabsContent>

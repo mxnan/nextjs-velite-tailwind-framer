@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 
 
 export async function generateMetadata(): Promise<Metadata> {

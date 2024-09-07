@@ -3,33 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowDownRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
+import { siteConfig } from "@/config/site";
+import { Icons } from "../icons";
 
-const componentSidebar: {
-  category: string;
-  items: { name: string; href: string }[];
-}[] = [
-  {
-    category: "Buttons",
-    items: [
-      {
-        name: "Shine",
-        href: "/components/buttons/shine-button",
-      },
-    ],
-  },
-  {
-    category: "Loaders",
-    items: [{ name: "Spin", href: "/components/loaders/spin-loader" }],
-  },
 
-  // Add more categories and items as needed
-];
 
-export default function ResponsiveSidebar()  {
+export default function ResponsiveSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
@@ -64,9 +46,9 @@ export default function ResponsiveSidebar()  {
       )}
       <motion.div
         className={cn(
-          "fixed z-30 top-44 h-[70vh] p-4 ",
+          "fixed z-30 top-44 h-[70dvh] p-4 ",
           isMobile
-            ? "w-64 left-0 bg-white dark:bg-black rounded-2xl shadow-xl border border-stone-300 dark:border-stone-700"
+            ? "w-64 left-0 bg-primary text-secondary rounded-2xl shadow-xl border"
             : "w-56 bg-transparent border-0 shadow-none flex-1 left-[calc(50%-47rem)] 2xl:left-[calc(50%-50rem)]   "
         )}
         initial={isMobile ? "closed" : "open"}
@@ -83,19 +65,19 @@ export default function ResponsiveSidebar()  {
       >
         <nav
           className={cn(
-            "flex-1 flex flex-col mt-10 gap-4",
-            isMobile
-              ? "pr-12 border-r-2 border-gray-400 dark:border-gray-700"
-              : ""
+            "flex-1 flex flex-col gap-4",
+            isMobile ? "pr-6 py-10" : ""
           )}
         >
           {/* Mapping over componentSidebar from lib/site.config*/}
-          {componentSidebar.map((category) => (
+          {siteConfig.componentSidebar.map((category) => (
             <div
               key={category.category}
               className="flex flex-col items-end gap-3"
             >
-              <span className="font-medium text-xl">{category.category}</span>
+              <span className="text-muted-foreground text-xl">
+                {category.category}
+              </span>
 
               <ul className="flex flex-col gap-1 ">
                 {category.items.map((item) => (
@@ -105,14 +87,18 @@ export default function ResponsiveSidebar()  {
                   >
                     <Link
                       href={item.href}
-                      className="custom-underline font-light w-max pb-2 flex items-center gap-2 group/rotate"
+                      onClick={toggleSidebar}
+                      className="custom-underline font-semibold w-max pb-2 flex items-center gap-2 group/rotate"
                     >
                       {item.name}
-                      <ArrowDownRight
+                      <Icons.downright
                         className={cn(
-                          "w-4 h-4 text-gray-500 group-hover/rotate:-rotate-[30deg] transition-transform ease-in-out duration-300",
+                          "w-4 h-4 text-muted-foreground group-hover/rotate:-rotate-[30deg] transition-transform ease-in-out duration-300",
                           item.href === pathname &&
-                            " text-black dark:text-white stroke-[3px] transition-colors ease-in-out duration-300"
+                            " text-secondary stroke-[4px] transition-colors ease-in-out duration-300",
+                          isMobile
+                            ? "text-secondary/[0.6]"
+                            : "text-muted-foreground"
                         )}
                       />
                     </Link>
@@ -125,7 +111,7 @@ export default function ResponsiveSidebar()  {
       </motion.div>
     </>
   );
-};
+}
 
 const OpenCloseButton = ({
   onclickFunction,
@@ -161,7 +147,7 @@ const OpenCloseButton = ({
             fill="none"
             strokeWidth={3}
             strokeLinecap="round"
-            className=" stroke-indigo-700 dark:stroke-amber-700"
+            className=" stroke-primary"
           >
             <motion.path
               variants={{

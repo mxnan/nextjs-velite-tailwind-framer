@@ -1,0 +1,21 @@
+---
+title: Particles reveal
+description: Animation to reveal children with particles using framer-motion
+category: playground
+tags: ["playground", "reveal"]
+---
+
+<FadeText
+  text="Particles reveal"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>

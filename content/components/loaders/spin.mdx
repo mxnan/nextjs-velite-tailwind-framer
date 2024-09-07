@@ -1,0 +1,56 @@
+---
+title: Spin
+description: Loader spin
+category: loaders
+tags: ["loaders", "spin"]
+---
+
+<FadeText
+  text="Spin"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+## Component preview
+
+> for displaying component preview and their code
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview path="spin" category="loaders" usingCN />
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```tsx {6-10} showLineNumbers
+import React from "react";
+
+const SpinDemo = () => {
+  return (
+    <section className="w-full h-72 flex items-center justify-center relative">
+      <div className="absolute inset-x-1/2 inset-y-1/2 h-6 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-8 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-10 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-12 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+      <div className="absolute inset-y-1/2 inset-x-1/2 h-6 w-12 animate-spin rounded-full border-4 border-y-2 border-solid border-ring border-r-muted-foreground" />
+    </section>
+  );
+};
+
+export default SpinDemo;
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>

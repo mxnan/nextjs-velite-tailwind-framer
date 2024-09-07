@@ -2,10 +2,8 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Icons } from "../icons";
-import { buttonVariants } from "./button";
 
 const Tabs = TabsPrimitive.Root;
 
@@ -13,32 +11,55 @@ const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
-
-    <TabsPrimitive.List
-      ref={ref}
-      className={cn(
-        "w-full justify-start rounded-none border-b bg-transparent p-0",
-        className
-      )}
-      {...props}
-    />
- 
+  <TabsPrimitive.List
+    ref={ref}
+    className={cn(
+      "w-max justify-start rounded-none border-b bg-transparent p-0",
+      className
+    )}
+    {...props}
+  />
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "border-b-4 border-b-transparent bg-transparent px-3 pb-2 pt-2 font-semibold text-muted-foreground shadow-none transition-all duration-300 ease-in-out data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
-      className
-    )}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <TabsPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        "relative bg-transparent border-primary px-3 pb-2 pt-2 font-semibold text-muted-foreground shadow-none transition-colors duration-300 ease-in-out data-[state=active]:border-b-4 data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        className
+      )}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...props}
+    >
+      {props.children}
+      <motion.span
+        className="absolute inset-0 rounded-xl w-full bg-secondary/[0.6]"
+        initial={{
+          x: 1,
+          opacity: 0,
+        }}
+        animate={{
+          x: isHovered ? 0 : 1,
+          opacity: isHovered ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.3,
+          type: "tween",
+          stiffness: 100,
+          damping: 20,
+        }}
+      />
+    </TabsPrimitive.Trigger>
+  );
+});
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
 const TabsContent = React.forwardRef<
@@ -52,7 +73,21 @@ const TabsContent = React.forwardRef<
       className
     )}
     {...props}
-  />
+  >
+    <motion.div
+      initial={{ opacity: 0, y: 10, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+      transition={{
+        duration: 0.3,
+        type: "tween",
+        stiffness: 100,
+        damping: 20,
+      }}
+    >
+      {props.children}
+    </motion.div>
+  </TabsPrimitive.Content>
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 

@@ -4,8 +4,9 @@ import { Callout } from "./callout";
 import { FadeText } from "./fade-text";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CollapsibleCodeBlock } from "./collapsible-codeblock";
-import ComponentPreview from "./component-preview";
+
 import { MdxCard } from "./mdx-card";
+import { ComponentPreview } from "./component-preview";
 
 const sharedComponents = {
   // Add your base components here

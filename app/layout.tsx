@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "mxnan",
   },
   description: `Creating in public with some blogs 
-  and creating  custom react components for usage.
+  and creating custom react components for usage.
    Using Nextjs, Tailwind, Velite, Framer-motion and more.`,
   
   metadataBase: new URL("https://mxnan.com"),
