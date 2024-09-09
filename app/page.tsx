@@ -8,14 +8,9 @@ async function getComponents(slug: string): Promise<Components | undefined> {
   return components.find((components) => components.slug === slug);
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Home",
-    description: "Home page",
-    alternates: {
-      canonical: `https://mxnan.com`,
-    },
-  };
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Home Page for showcasing main components",
 }
 export default async function Home() {
   const components = await getComponents("components/home");

@@ -1,20 +1,15 @@
-import { FormSection } from '@/components/form-section';
-import { FadeText } from '@/components/mdx/fade-text';
-import { Metadata } from 'next';
-import React from 'react'
+import { FormSection } from "@/components/form-section";
+import { FadeText } from "@/components/mdx/fade-text";
+import { Metadata } from "next";
+import React from "react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Contact",
-    description: "Just a email contact section",
-    alternates: {
-      canonical: `https://mxnan.com/contact`,
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contact Page for emailing",
+};
 export default function ContactPage() {
   return (
-  <section className="flex-1 relative">
+    <section className="flex-1 relative">
       <div className="max-w-2xl mx-auto space-y-8 py-24">
         <FadeText
           text="Connect with me ?"
@@ -37,6 +32,6 @@ export default function ContactPage() {
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         <FormSection className="pt-8 px-6" />
       </div>
-  </section>
-  )
+    </section>
+  );
 }

@@ -28,12 +28,32 @@ export async function generateMetadata({
   if (!blog) {
     return {};
   }
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", blog.title);
+
   return {
     title: blog.title,
     description: blog.description,
     keywords: blog.tags?.join(", "),
-    alternates: {
-      canonical: `https://mxnan.com/blogs/${blog.slugAsParams}`,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      url: blog.slug,
+      type: "article",
+      images: [
+        {
+          url: `/api/og?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      images: [`/api/og?${ogSearchParams.toString()}`],
     },
   };
 }

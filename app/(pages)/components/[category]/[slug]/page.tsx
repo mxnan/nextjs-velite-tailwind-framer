@@ -32,11 +32,36 @@ export async function generateMetadata({
 }: ComponentSlugPageProps): Promise<Metadata> {
   const components = await getComponents(params.category, params.slug);
 
+  if (!components) {
+    return {};
+  }
+
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", components.title);
+
   return {
-    title: components?.title,
-    description: components?.description,
-    alternates: {
-      canonical: `https://mxnan.com/components/${params.category}/${params.slug}`,
+    title: components.title,
+    description: components.description,
+    keywords: components.tags?.join(", "),
+    openGraph: {
+      title: components.title,
+      description: components.description,
+      url: components.slug,
+      type: "article",
+      images: [
+        {
+          url: `/api/og?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: components.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: components.title,
+      description: components.description,
+      images: [`/api/og?${ogSearchParams.toString()}`],
     },
   };
 }

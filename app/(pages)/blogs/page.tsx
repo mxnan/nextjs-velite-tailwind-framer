@@ -7,14 +7,9 @@ import { Metadata } from "next";
 
 import React from "react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Blogs",
-    description: "Writing some blogs to showcase my learning and findings",
-    alternates: {
-      canonical: `https://mxnan.com/blogs`,
-    },
-  };
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Blogs of mxnan",
 }
 export default async function BlogsPage() {
   const sortedBlogs = sortBlogs(blogs.filter((blog) => blog));

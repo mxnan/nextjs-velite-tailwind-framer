@@ -14,21 +14,20 @@ export const metadata: Metadata = {
     template: "%s || mxnan",
     default: "mxnan",
   },
-  description: `Creating in public with some blogs 
-  and creating custom react components for usage.
-   Using Nextjs, Tailwind, Velite, Framer-motion and more.`,
-  
+  description: `Personal website/blogs/components. Using Nextjs, Tailwind, Velite, Framer-motion and more.`,
+
   metadataBase: new URL("https://mxnan.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://mxnan.com",
     siteName: "mxnan.com",
+    
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
-        height: 800,
+        height: 630,
         alt: "mxnan.com",
       },
     ],
@@ -50,8 +49,8 @@ export const metadata: Metadata = {
     "Blog",
     "Mdx",
   ],
-  authors: [{ name: "Manan", url: "https://mxnan.com" }],
-  creator: "Manan",
+  authors: [{ name: "mxnan", url: "https://mxnan.com" }],
+  creator: "mxnan",
   publisher: "mxnan",
   formatDetection: {
     email: false,
@@ -69,7 +68,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn("relative antialiased font-sans", sans.variable)}>
         <Providers>
-          <div className="relative container min-h-dvh flex flex-col">
+          <div className="relative container flex flex-col">
             <Header />
             <main className="flex-1 py-10">{children}</main>
           </div>
