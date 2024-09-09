@@ -38,7 +38,7 @@ export const siteConfig = {
     },
     {
       category: "Loaders",
-      items: [{ name: "Spin", href: "/components/loaders/spin" }],
+      items: [{ name: "Spiral", href: "/components/loaders/spiral" }],
     },
   ],
 };

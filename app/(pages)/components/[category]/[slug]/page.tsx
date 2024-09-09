@@ -59,7 +59,6 @@ export default async function ComponentSlugPage({
   params,
 }: ComponentSlugPageProps): Promise<React.ReactElement> {
   const component = await getComponents(params.category, params.slug);
-
   if (!component) {
     notFound();
   }
@@ -67,11 +66,13 @@ export default async function ComponentSlugPage({
   return (
     <section className="flex-1 relative">
       <MDXContent code={component.content} />
-      <div className="hidden 2xl:block ">
-        <div className="fixed top-44 left-[calc(50%+30rem)] -mt-10 h-full  overflow-y-auto pt-10">
-          <DashboardTableOfContents toc={component.toc} />
+      {component.toc && component.toc.length > 0 && (
+        <div className="hidden 2xl:block">
+          <div className="fixed top-44 left-[calc(50%+30rem)] -mt-10 h-full overflow-y-auto pt-10">
+            <DashboardTableOfContents toc={component.toc} />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

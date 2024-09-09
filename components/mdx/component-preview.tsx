@@ -14,6 +14,7 @@ interface ComponentPreviewProps {
   category: string;
   usingFramer?: boolean;
   usingCN?: boolean;
+  forShowcase?: boolean;
 }
 
 export function ComponentPreview({
@@ -21,6 +22,7 @@ export function ComponentPreview({
   category,
   usingFramer,
   usingCN,
+  forShowcase = false,
 }: ComponentPreviewProps) {
   // get preview component from showcase/[]/[].tsx
   const Preview = useCallback(() => {
@@ -35,7 +37,12 @@ export function ComponentPreview({
 
   return (
     <div className="min-h-80 relative mt-4 border rounded-lg w-full bg-secondary">
-      <div className="absolute -top-12 right-4 flex ">
+      <div
+        className={cn(
+          "absolute -top-14 right-4 flex ",
+          forShowcase && "hidden"
+        )}
+      >
         <TooltipProvider disableHoverableContent delayDuration={0}>
           <Tooltip>
             <TooltipTrigger className="p-2">

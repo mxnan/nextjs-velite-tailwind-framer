@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Tabs = TabsPrimitive.Root;
@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "w-max justify-start rounded-none border-b bg-transparent p-0",
+      "w-max justify-start rounded-none bg-transparent p-0",
       className
     )}
     {...props}
@@ -32,7 +32,7 @@ const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        "relative bg-transparent border-primary px-3 pb-2 pt-2 font-semibold text-muted-foreground shadow-none transition-colors duration-300 ease-in-out data-[state=active]:border-b-4 data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "relative bg-transparent text-sm px-3 pb-2 pt-2 font-medium text-muted-foreground shadow-none transition-colors duration-300 ease-in-out data-[state=active]:font-bold data-[state=active]:text-foreground data-[state=active]:shadow-none",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -40,23 +40,22 @@ const TabsTrigger = React.forwardRef<
       {...props}
     >
       {props.children}
-      <motion.span
-        className="absolute inset-0 rounded-xl w-full bg-secondary/[0.6]"
-        initial={{
-          x: 1,
-          opacity: 0,
-        }}
-        animate={{
-          x: isHovered ? 0 : 1,
-          opacity: isHovered ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.3,
-          type: "tween",
-          stiffness: 100,
-          damping: 20,
-        }}
-      />
+      {isHovered === true && (
+        <AnimatePresence>
+          <motion.span
+            className="absolute bottom-0 left-0 h-[3px] rounded-xl w-full bg-primary"
+            initial={{ opacity: 0, y: 10, scaleX: 0 }}
+            animate={{ opacity: 1, y: 0, scaleX: 1 }}
+            exit={{ opacity: 0, y: -10, scaleX: 0 }}
+            transition={{
+              duration: 0.5,
+              type: "tween",
+              stiffness: 100,
+              damping: 20,
+            }}
+          />
+        </AnimatePresence>
+      )}
     </TabsPrimitive.Trigger>
   );
 });
