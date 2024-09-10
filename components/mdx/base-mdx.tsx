@@ -116,7 +116,9 @@ export const basecomponents = {
       {...props}
     />
   ),
+  //////////////////////////////////////////////
   pre: Pre, // using as pre-with-copy for copy button functions
+  //////////////////////////////////////////////
   code: ({ className, ...props }: ComponentsProps) => (
     <code
       className={cn(
@@ -126,7 +128,7 @@ export const basecomponents = {
       {...props}
     />
   ),
-  // customLink
+  ////////////////////// customLink
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <CustomLink
       className={cn(
@@ -136,7 +138,7 @@ export const basecomponents = {
       {...props}
     />
   ),
-  /////// steps
+  ///////////////////// steps
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3 className={cn("my-8 scroll-m-32 ", className)} {...props} />
   ),

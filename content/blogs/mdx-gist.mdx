@@ -171,9 +171,9 @@ function MyComponent() {
 
 > Grid layout here
 
-<div className="grid sm:grid-cols-2 gap-4 mt-6">
+<div className="grid sm:grid-cols-2 gap-4 my-6">
 
-<MdxCard href="/#">
+<MdxCard href="/#" className="p-6">
 
 ### Home
 
@@ -181,7 +181,7 @@ function MyComponent() {
 
 </MdxCard>
 
-<MdxCard href="/blogs" >
+<MdxCard href="/blogs" className="p-6">
 
 ### Blogs
 
@@ -189,7 +189,7 @@ function MyComponent() {
 
 </MdxCard>
 
-<MdxCard href="/components" >
+<MdxCard href="/components" className="p-6">
 
 ### Components
 
@@ -197,6 +197,16 @@ function MyComponent() {
 
 </MdxCard>
 </div>
+
+<MdxCard href="/components/loaders/spiral" className="p-4">
+
+#### Spiral
+
+`components > loaders > spiral`
+
+<ComponentPreview path="spin" category="loaders" forShowcase />
+
+</MdxCard>
 
 ## Component preview
 

@@ -22,7 +22,7 @@ export default async function Home() {
   return (
     <section className="relative w-full">
      <HomePageHero />
-      <div className="">
+      <div className="flex-1">
         <MDXContent code={components.content} />
       </div>
     </section>

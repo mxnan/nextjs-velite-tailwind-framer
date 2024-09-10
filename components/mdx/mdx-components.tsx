@@ -1,13 +1,43 @@
 import * as runtime from "react/jsx-runtime";
-import { basecomponents } from "./base-mdx";
+
+import { basecomponents } from "./base-mdx"; // import for base components
+
+//// some custom components
 import { Callout } from "./callout";
 import { FadeText } from "./fade-text";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CollapsibleCodeBlock } from "./collapsible-codeblock";
 
-import { MdxCard } from "./mdx-card";
-import { ComponentPreview } from "./component-preview";
-
+//// using dynamic imports here
+import dynamic from "next/dynamic";
+import BounceLoader from "../ui/bounce-loader";
+////////////////////////////////
+const MdxCard = dynamic(() => import("./mdx-card").then((mod) => mod.MdxCard), {
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
+      <BounceLoader />
+    </div>
+  ),
+});
+const CollapsibleCodeBlock = dynamic(
+  () =>
+    import("./collapsible-codeblock").then((mod) => mod.CollapsibleCodeBlock),
+  {
+    ssr: false,
+  }
+);
+const ComponentPreview = dynamic(
+  () => import("./component-preview").then((mod) => mod.ComponentPreview),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-80 w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
+        <BounceLoader />
+      </div>
+    ),
+  }
+);
+////////////////////////////////
 const sharedComponents = {
   // Add your base components here
   ...basecomponents,
