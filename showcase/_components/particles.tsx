@@ -1,77 +1,3 @@
----
-title: Particles reveal
-description: Animation to reveal children with particles using framer-motion
-category: playground
-tags: ["playground", "reveal"]
----
-
-<FadeText
-  text="Particles reveal"
-  direction="left"
-  framerProps={{
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { duration: 1, delay: 0.3, type: "spring" },
-    },
-  }}
-  className="scroll-m-10  tracking-tight
-        text-4xl  
-        drop-shadow-2xl font-semibold  "
-/>
-
-<Callout> Reveals children with particle-box animation </Callout>
-
-**Inspired from magicUI box reveal .** [see docs](https://magicui.design/docs/components/box-reveal)
-
-`use this as a dynamic import into your pages or use as mdx component .`
-
-<Tabs defaultValue="preview" className="my-6">
-<TabsList>
-<TabsTrigger value="preview">Preview</TabsTrigger>
-<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-<TabsContent value="preview">
-<ComponentPreview path="particles-reveal-text" category="playground" usingCN usingFramer />
-</TabsContent>
-<TabsContent value="code">
-<CollapsibleCodeBlock>
-```tsx /ParticlesReveal/
-import ParticlesReveal from '@/showcase/_components/particles-reveal';  
-import React from 'react'
-// update imports acc to your folder structure . 
-const ParticlesRevealTextDemo  = () => {
-  return (
-    <div className="w-full h-72 flex items-center justify-center">
-      <ParticlesReveal
-        width="fit-content"
-        className="bg-stone-700"
-        duration={1.5}
-      >
-        <h1 className="text-7xl font-semibold ">
-          Enter text here
-        </h1>
-      </ParticlesReveal>
-    </div>
-  );
-}
-
-export default ParticlesRevealTextDemo 
-```
-</CollapsibleCodeBlock>
-</TabsContent>
-</Tabs>
-
-<p className="text-2xl font-bold">Installation</p>
-
-<Steps>
-  <Step>
-      **Copy particles.tsx**
-
-      `You can use this as background in many other places`
-    <CollapsibleCodeBlock>
-
-```tsx
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -266,7 +192,7 @@ const Particles: React.FC<ParticlesProps> = ({
         0,
         0,
         canvasSize.current.w,
-        canvasSize.current.h
+        canvasSize.current.h,
       );
     }
   };
@@ -285,7 +211,7 @@ const Particles: React.FC<ParticlesProps> = ({
     start1: number,
     end1: number,
     start2: number,
-    end2: number
+    end2: number,
   ): number => {
     const remapped =
       ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
@@ -304,7 +230,7 @@ const Particles: React.FC<ParticlesProps> = ({
       ];
       const closestEdge = edge.reduce((a, b) => Math.min(a, b));
       const remapClosestEdge = parseFloat(
-        remapValue(closestEdge, 0, 20, 0, 1).toFixed(2)
+        remapValue(closestEdge, 0, 20, 0, 1).toFixed(2),
       );
       if (remapClosestEdge > 1) {
         circle.alpha += 0.02;
@@ -351,127 +277,3 @@ const Particles: React.FC<ParticlesProps> = ({
 };
 
 export default Particles;
-```
-
-</CollapsibleCodeBlock>
-  </Step>
-  <Step>
-    **Create particles-reveal.tsx**
-
-    `this will handle reveal animation for particles and bg-box`
-    <CollapsibleCodeBlock>
-
-```tsx
-"use client";
-
-import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
-import Particles from "./particles";
-
-interface ParticlesRevealProps {
-  children: JSX.Element;
-  width?: "fit-content" | "100%";
-  className?: string;
-  duration?: number;
-}
-
-export const ParticlesReveal = ({
-  children,
-  width,
-  className,
-  duration,
-}: ParticlesRevealProps) => {
-  const mainControls = useAnimation();
-  const slideControls = useAnimation();
-
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      slideControls.start("visible");
-      mainControls.start("visible");
-    } else {
-      slideControls.start("hidden");
-      mainControls.start("hidden");
-    }
-  }, [isInView, mainControls, slideControls]);
-
-  return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: -100 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        initial="hidden"
-        animate={mainControls}
-        transition={{
-          duration: duration ? duration : 1,
-          ease: "easeInOut",
-          type: "tween",
-          damping: 50,
-          stiffness: 200,
-          restDelta: 0.001,
-        }}
-      >
-        {children}
-      </motion.div>
-
-      <motion.div
-        variants={{
-          hidden: { top: 0 },
-          visible: { top: "100%" },
-        }}
-        initial="hidden"
-        animate={slideControls}
-        className={cn("rounded-xl", className)}
-        transition={{
-          duration: duration ? duration : 1,
-          ease: "easeInOut",
-          type: "tween",
-          damping: 50,
-          stiffness: 200,
-          restDelta: 0.001,
-        }}
-        style={{
-          position: "absolute",
-          top: 4,
-          bottom: 4,
-          left: 0,
-          right: 0,
-          zIndex: 20,
-        }}
-      >
-        {" "}
-        <Particles
-          className="absolute inset-0 "
-          quantity={100}
-          ease={80}
-          color={"#ffffff"}
-          refresh
-        />
-      </motion.div>
-    </div>
-  );
-};
-
-export default ParticlesReveal;
-```
-
-</CollapsibleCodeBlock>
-  </Step>
-</Steps>
-
-<MdxCard className="p-4">
-
-<p className="text-2xl font-bold mb-3">Grid Variant</p>
-
-<ComponentPreview
-  path="particles-reveal-grid"
-  category="playground"
-  usingCN
-  forShowcase
-/>
-</MdxCard>
