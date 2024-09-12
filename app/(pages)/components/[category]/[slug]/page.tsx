@@ -3,7 +3,6 @@ import { Components, components } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { DashboardTableOfContents } from "@/components/mdx/toc";
 
 interface ComponentSlugPageProps {
   params: {
@@ -91,13 +90,6 @@ export default async function ComponentSlugPage({
   return (
     <section className="flex-1 relative">
       <MDXContent code={component.content} />
-      {component.toc && component.toc.length > 0 && (
-        <div className="hidden 2xl:block">
-          <div className="fixed top-44 left-[calc(50%+30rem)] -mt-10 h-full overflow-y-auto pt-10">
-            <DashboardTableOfContents toc={component.toc} />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

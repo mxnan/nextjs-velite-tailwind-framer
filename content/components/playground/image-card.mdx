@@ -1,0 +1,49 @@
+---
+title: Image/Wobble card
+description: image reveal with a wobble card
+category: playground
+tags: ["playground", "image", "reveal"]
+---
+
+<FadeText
+  text="Image/Wobble Card"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+Wobble Card base file taken from [magicUI](https://magicui.design/docs/components/particles)
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview
+  path="image-card"
+  category="playground"
+  usingCN
+  usingFramer
+/>
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```tsx /Particles/
+dsa
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>
+
+`use this as a dynamic import into your pages or use as mdx component .`
+
+---

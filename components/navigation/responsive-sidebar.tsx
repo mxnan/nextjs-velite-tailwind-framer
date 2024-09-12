@@ -9,8 +9,6 @@ import { Button } from "../ui/button";
 import { siteConfig } from "@/config/site";
 import { Icons } from "../icons";
 
-
-
 export default function ResponsiveSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -88,9 +86,12 @@ export default function ResponsiveSidebar() {
                     <Link
                       href={item.href}
                       onClick={toggleSidebar}
-                      className="custom-underline font-semibold w-max pb-2 flex items-center gap-2 group/rotate"
+                      className="font-semibold  flex items-center justify-end gap-2 group/rotate"
                     >
-                      {item.name}
+                      <span className="w-max custom-underline pb-2 ">
+                        {item.name}
+                      </span>
+
                       <Icons.downright
                         className={cn(
                           "w-4 h-4 text-muted-foreground group-hover/rotate:-rotate-[30deg] transition-transform ease-in-out duration-300",

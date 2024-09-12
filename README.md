@@ -1,22 +1,30 @@
 # Velite  + Framer Motion + Next.js + TailwindCSS + Shadcn
 
-## Blogs
+---
 
-Blogs frontmatter example
+## Demo
 
-- title: test
-- description: test description
-- summary: test summary
-- date: "2024-08-15"
-- status: "published"
-- image : url from unsplash
-- tags : ["test","test"]
+Personal website to display components, blogs,ideas ? .
+Demo can be seen [here](https://mxnan.com),
 
-## Components
+---
 
-Components frontmatter example
+### Features include
 
-- title: Shine
-- description: Button shine
-- category: buttons
-- tags: ["buttons", "shine"]
+- NextJS SSG site generation with SEO
+- Shadcn UI, tailwindcss, framer motion
+- Velite for mdx content
+- Dynamic Open Graph Image with api/og
+- Syntax Highlighting in code block using [rehype-pretty-code](https://github.com/atomiks/rehype-pretty-code)
+- EmailJS for contact form
+
+---
+
+## Credits
+
+Much of the design of this project is taken from others, such as
+
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Taxonomy](https://tx.shadcn.com/)
+- [Aceternity](https://ui.aceternity.com/)
+- [magicUI](https://magicui.design/)

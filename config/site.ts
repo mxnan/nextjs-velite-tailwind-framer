@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "mxnan.com",
-  description: "Personal website and component library with some blogs, Built with Nextjs,velite,tailwind,framer-motion and more.",
+  description:
+    "Personal website and component library with some blogs, Built with Nextjs,velite,tailwind,framer-motion and more.",
   url: "https://mxnan.com",
   author: "@mxnan",
   topNavLinks: [
@@ -31,6 +32,10 @@ export const siteConfig = {
       category: "Playground",
       items: [
         {
+          name: "Image/card",
+          href: "/components/playground/image-card",
+        },
+        {
           name: "Particles",
           href: "/components/playground/particles",
         },
@@ -42,8 +47,10 @@ export const siteConfig = {
     },
     {
       category: "Buttons",
-      items: [{ name: "Hover-reveal", href: "/components/buttons/hover-reveal" }],
-    }
+      items: [
+        { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },
+      ],
+    },
   ],
 };
 

@@ -1,5 +1,6 @@
 import { blogs } from "#site/content";
 import { FadeText } from "@/components/mdx/fade-text";
+import BounceLoader from "@/components/ui/bounce-loader";
 import { sortBlogs } from "@/lib/utils";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -7,6 +8,11 @@ import React from "react";
 
 const BlogCard = dynamic(() => import("@/components/blog-card"), {
   ssr: false,
+  loading: () => (
+    <div className="h-full w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
+      <BounceLoader />
+    </div>
+  ),
 });
 export const metadata: Metadata = {
   title: "Blogs",

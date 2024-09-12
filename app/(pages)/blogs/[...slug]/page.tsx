@@ -2,14 +2,19 @@ import { blogs } from "#site/content";
 import { Icons } from "@/components/icons";
 import { MDXContent } from "@/components/mdx/mdx-components";
 import ProgressBar from "@/components/mdx/progress-bar";
-import { DashboardTableOfContents } from "@/components/mdx/toc";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+const DashboardTableOfContents = dynamic(
+  () =>
+    import("@/components/mdx/toc").then((mod) => mod.DashboardTableOfContents),
+  { ssr: false }
+);
 interface BlogPageProps {
   params: {
     slug: string[];

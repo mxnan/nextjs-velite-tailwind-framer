@@ -4,8 +4,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
-import TopNav from "./top-nav";
-import MobileNav from "./mobile-nav";
+import dynamic from "next/dynamic";
+
+const TopNav = dynamic(() => import("./top-nav"), { ssr: false });
+const MobileNav = dynamic(() => import("./mobile-nav"), { ssr: false });
 
 export default function Header() {
   return (
@@ -25,10 +27,9 @@ export default function Header() {
           <Icons.logo className="h-6 w-6" />
           <span className="sr-only">{siteConfig.name}</span>
         </Link>
-        <TopNav /> 
-        
+        <TopNav />
+
         <div className="md:hidden">
-         
           <MobileNav />
         </div>
       </nav>

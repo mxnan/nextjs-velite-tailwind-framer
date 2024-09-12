@@ -1,9 +1,5 @@
-"use client";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
-import { Button } from "../ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -11,7 +7,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Icons } from "../icons";
-import RetroGrid from "../custom/retro-grid";
+import dynamic from "next/dynamic";
+
+const RetroGrid = dynamic(() => import("../custom/retro-grid"), { ssr: false });
 
 interface FooterLinksProps {
   name: string;
@@ -47,7 +45,6 @@ const FooterLinks: {
 };
 
 const Footer: React.FC = () => {
-  const pathname = usePathname();
   return (
     <footer className="w-full relative">
       <RetroGrid className="bottom-0 h-full opacity-50 [perspective:200px] " />

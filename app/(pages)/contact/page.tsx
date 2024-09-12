@@ -1,7 +1,14 @@
-import { FormSection } from "@/components/form-section";
 import { FadeText } from "@/components/mdx/fade-text";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const FormSection = dynamic(
+  () => import("@/components/form-section").then((mod) => mod.FormSection),
+  {
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: "Contact",

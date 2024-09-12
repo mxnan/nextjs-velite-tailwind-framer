@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 
 const ThemeToggle = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const ThemeToggle = () => {
     >
       {theme === "light" ? (
         <svg
-        className="h-6 w-6"
+          className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
@@ -55,7 +55,7 @@ const ThemeToggle = () => {
         </svg>
       ) : (
         <svg
-        className="h-6 w-6"
+          className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="none"
