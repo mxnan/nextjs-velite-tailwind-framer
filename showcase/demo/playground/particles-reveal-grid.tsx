@@ -5,26 +5,26 @@ const GridItems = [
   {
     title: "Grid Reveal",
     description:
-      "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultrices quis nostra facilisis sodales.",
+      "Lorem ipsum odor amet, consectetuer adipiscing elit.",
     info: [" text ", " text ", " text "],
   },
   {
     title: "Grid Reveal",
     description:
-      "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultrices quis nostra facilisis sodales.",
+      "Lorem ipsum odor amet, consectetuer adipiscing elit.",
     info: [" text ", " text ", " text "],
   },
   {
     title: "Grid Reveal",
     description:
-      "Lorem ipsum odor amet, consectetuer adipiscing elit. Ultrices quis nostra facilisis sodales.",
+      "Lorem ipsum odor amet, consectetuer adipiscing elit.",
     info: [" text ", " text ", " text "],
   },
 ];
 const ParticlesRevealGridDemo = () => {
   return (
     <div
-      className="w-full relative py-16
+      className="w-full relative pt-24
     flex-1 grid grid-cols-1 gap-6 p-4
                       sm:grid-cols-2 
                       md:grid-cols-2
@@ -33,12 +33,7 @@ const ParticlesRevealGridDemo = () => {
     "
     >
       {GridItems.map((item, index) => (
-        <ParticlesReveal
-          key={index}
-          width="fit-content"
-          className="bg-stone-800"
-          duration={1.5}
-        >
+        <ParticlesReveal key={index} width="fit-content" duration={1.5}>
           {/* just a card example*/}
           <div className="max-w-sm group/card rounded-md border border-secondary-foreground p-3 cursor-pointer">
             <h1 className="text-xl font-semibold mb-3">{item.title}</h1>

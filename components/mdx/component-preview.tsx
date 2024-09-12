@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+"use client";
+import React, { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
 import { Icons } from "../icons";
 import {
@@ -8,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 interface ComponentPreviewProps {
   path: string;
@@ -24,6 +26,8 @@ export function ComponentPreview({
   usingCN,
   forShowcase = false,
 }: ComponentPreviewProps) {
+  const [refreshKey, setRefreshKey] = useState(0);
+
   // get preview component from showcase/[]/[].tsx
   const Preview = useCallback(() => {
     const DynamicComponent = dynamic(
@@ -34,6 +38,10 @@ export function ComponentPreview({
     );
     return <DynamicComponent />;
   }, [path, category]);
+
+  const handleRefresh = () => {
+    setRefreshKey((prevKey) => prevKey + 1);
+  };
 
   return (
     <div className="min-h-80 relative mt-4 border rounded-lg w-full bg-secondary">
@@ -85,8 +93,18 @@ export function ComponentPreview({
           </Tooltip>
         </TooltipProvider>
       </div>
+      <Button
+        variant="default"
+        size="icon"
+        className="absolute right-2 top-2 z-10 group/refresh"
+        onClick={handleRefresh}
+      >
+        <Icons.refresh
+          className={cn("h-5 w-5 transition-all duration-500 ease-in-out group-hover/refresh:rotate-45")}
+        />
+      </Button>
       <div className="flex-1 flex items-center justify-center">
-        <Preview />
+        <Preview key={refreshKey} />
       </div>
     </div>
   );

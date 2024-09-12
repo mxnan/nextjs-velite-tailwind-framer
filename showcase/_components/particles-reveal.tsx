@@ -83,9 +83,9 @@ export const ParticlesReveal = ({
         {" "}
         <Particles
           className="absolute inset-0 "
-          quantity={100}
-          ease={80}
-          color={"#ffffff"}
+          quantity={200}
+          ease={40}
+          size={1}
           refresh
         />
       </motion.div>

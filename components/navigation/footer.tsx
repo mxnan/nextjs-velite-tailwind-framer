@@ -18,8 +18,7 @@ interface FooterLinksProps {
   href: string;
   icon?: React.ReactNode;
 }
-
-export const FooterLinks: {
+const FooterLinks: {
   main: FooterLinksProps[];
   social: FooterLinksProps[];
 } = {
@@ -60,7 +59,7 @@ const Footer: React.FC = () => {
           {FooterLinks.social.map((item) => (
             <TooltipProvider key={item.name}>
               <Tooltip disableHoverableContent delayDuration={0}>
-                <TooltipTrigger className="p-2 rounded-xl hover:bg-primary hover:text-muted-foreground transition-colors duration-300 ease-in-out group/icon">
+                <TooltipTrigger className="p-2 rounded-xl hover:bg-primary hover:text-primary-foreground transition-colors duration-300 ease-in-out group/icon">
                   <a
                     aria-label={item.name}
                     rel="noopener noreferrer"
