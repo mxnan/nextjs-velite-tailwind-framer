@@ -31,8 +31,8 @@ export const siteConfig = {
       category: "Playground",
       items: [
         {
-          name: "Particles Reveal",
-          href: "/components/playground/particles-reveal",
+          name: "Particles",
+          href: "/components/playground/particles",
         },
       ],
     },
@@ -40,6 +40,10 @@ export const siteConfig = {
       category: "Loaders",
       items: [{ name: "Spiral", href: "/components/loaders/spiral" }],
     },
+    {
+      category: "Buttons",
+      items: [{ name: "Hover-reveal", href: "/components/buttons/hover-reveal" }],
+    }
   ],
 };
 

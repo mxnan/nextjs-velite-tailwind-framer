@@ -1,21 +1,17 @@
 import { blogs } from "#site/content";
-import BlogCard from "@/components/blog-card";
-
 import { FadeText } from "@/components/mdx/fade-text";
 import { sortBlogs } from "@/lib/utils";
 import { Metadata } from "next";
-
+import dynamic from "next/dynamic";
 import React from "react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Blogs",
-    description: "Writing some blogs to showcase my learning and findings",
-    alternates: {
-      canonical: `https://mxnan.com/blogs`,
-    },
-  };
-}
+const BlogCard = dynamic(() => import("@/components/blog-card"), {
+  ssr: false,
+});
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "Blogs of mxnan",
+};
 export default async function BlogsPage() {
   const sortedBlogs = sortBlogs(blogs.filter((blog) => blog));
   const displayBlogs = sortedBlogs;
@@ -49,14 +45,14 @@ export default async function BlogsPage() {
         </div>
         {displayBlogs?.length > 0 && (
           <div
-            className="flex-1 p-4 md:border-x 
+            className="flex-1 p-4 
                     grid grid-cols-1
                     md:grid-cols-2
                     lg:grid-cols-2
                     justify-items-center content-center"
           >
             {displayBlogs?.map((blog, index) => (
-              <BlogCard key={blog.slug} index={index} {...blog}  />
+              <BlogCard key={blog.slug} index={index} {...blog} />
             ))}
           </div>
         )}

@@ -11,11 +11,36 @@ async function getComponents(slug: string): Promise<Components | undefined> {
 
 export async function generateMetadata(): Promise<Metadata> {
   const components = await getComponents("components/intro");
+
+  if (!components) {
+    return {};
+  }
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", components.title);
+
   return {
-    title: components?.title,
-    description: components?.description,
-    alternates: {
-      canonical: "https://mxnan.com/components",
+    title: components.title,
+    description: components.description,
+    keywords: components.tags?.join(", "),
+    openGraph: {
+      title: components.title,
+      description: components.description,
+      url: components.slug,
+      type: "article",
+      images: [
+        {
+          url: `/api/og?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: components.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: components.title,
+      description: components.description,
+      images: [`/api/og?${ogSearchParams.toString()}`],
     },
   };
 }

@@ -17,7 +17,7 @@ export function MdxCard({
   return (
     <div
       className={cn(
-        "group relative rounded-lg border p-6 shadow-md transition-shadow hover:shadow-lg",
+        "group relative rounded-lg border shadow-md transition-all  hover:translate-y-1 hover:shadow-xl duration-300 ease-in-out",
         className
       )}
       {...props}
