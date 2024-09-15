@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="repo-link"
-            href="https://github.com/mxnan/mxnan.com"
+            href="https://github.com/mxnan/nextjs-velite-tailwind-framer/blob/main/CONTRIBUTING.md"
             className="w-max rounded-lg p-2 px-3 flex justify-center gap-2
             group-hover/footer:bg-secondary transition-colors duration-300 ease-in-out
             "

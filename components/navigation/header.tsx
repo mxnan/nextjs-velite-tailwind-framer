@@ -12,7 +12,7 @@ const MobileNav = dynamic(() => import("./mobile-nav"), { ssr: false });
 export default function Header() {
   return (
     <header
-      className="z-10 sticky top-0 w-full border-b border-border
+      className="z-50 sticky top-0 w-full border-b border-border
       bg-background/95 backdrop-blur
       supports-[backdrop-filter]:bg-background/60"
     >

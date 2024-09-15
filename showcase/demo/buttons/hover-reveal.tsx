@@ -63,7 +63,7 @@ const GithubStar = () => {
   };
 
   return (
-    <section className="w-full h-80 flex-1 flex items-center justify-center">
+    <section className="z-10 h-80 flex items-center justify-center">
       <a
         target="_blank"
         rel="noopener noreferrer"

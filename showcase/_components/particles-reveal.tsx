@@ -38,17 +38,17 @@ export const ParticlesReveal = ({
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: -100 },
+          hidden: { opacity: 0, y: 100 },
           visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"
         animate={mainControls}
         transition={{
           duration: duration ? duration : 1,
-          ease: "easeInOut",
-          type: "tween",
+          type: "spring",
           damping: 50,
           stiffness: 200,
+          delay: 0.6,
           restDelta: 0.001,
         }}
       >
@@ -65,7 +65,6 @@ export const ParticlesReveal = ({
         className={cn("rounded-xl", className)}
         transition={{
           duration: duration ? duration : 1,
-          ease: "easeInOut",
           type: "tween",
           damping: 50,
           stiffness: 200,
@@ -85,7 +84,7 @@ export const ParticlesReveal = ({
           className="absolute inset-0 "
           quantity={200}
           ease={40}
-          size={1}
+          size={2}
           refresh
         />
       </motion.div>

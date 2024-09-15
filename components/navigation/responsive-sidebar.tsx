@@ -94,9 +94,9 @@ export default function ResponsiveSidebar() {
 
                       <Icons.downright
                         className={cn(
-                          "w-4 h-4 text-muted-foreground group-hover/rotate:-rotate-[30deg] transition-transform ease-in-out duration-300",
+                          "w-4 h-4 pb-0 -translate-y-1 text-muted-foreground group-hover/rotate:-rotate-[45deg] transition-transform ease-in-out duration-300",
                           item.href === pathname &&
-                            " text-secondary stroke-[4px] transition-colors ease-in-out duration-300",
+                            " text-secondary stroke-[4px] -rotate-[45deg] transition-colors ease-in-out duration-300",
                           isMobile
                             ? "text-secondary/[0.6]"
                             : "text-muted-foreground"
