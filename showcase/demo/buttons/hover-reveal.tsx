@@ -63,7 +63,7 @@ const GithubStar = () => {
   };
 
   return (
-    <section className="z-10 h-80 flex items-center justify-center">
+    <section className="z-10">
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -98,7 +98,10 @@ const GithubStar = () => {
               variants={bghoverVariant}
               className="absolute z-10 rounded-lg inset-0 bg-sky-400/[0.9] dark:bg-emerald-600/[0.9]"
             />
-            <motion.span className="text-primary font-bold z-20" variants={textVariant}>
+            <motion.span
+              className="text-primary font-bold z-20"
+              variants={textVariant}
+            >
               Give a Star on Github ?
             </motion.span>
             <svg

@@ -86,17 +86,17 @@ export default function ResponsiveSidebar() {
                     <Link
                       href={item.href}
                       onClick={toggleSidebar}
-                      className="font-semibold  flex items-center justify-end gap-2 group/rotate"
+                      className="flex items-center justify-end gap-2 group/rotate"
                     >
-                      <span className="w-max custom-underline pb-2 ">
+                      <span className="w-max font-semibold  custom-underline pb-2 ">
                         {item.name}
                       </span>
 
                       <Icons.downright
                         className={cn(
-                          "w-4 h-4 pb-0 -translate-y-1 text-muted-foreground group-hover/rotate:-rotate-[45deg] transition-transform ease-in-out duration-300",
+                          "w-4 h-4 pb-0 -translate-y-1 text-muted-foreground group-hover/rotate:-rotate-[30deg] transition-transform ease-in-out duration-300",
                           item.href === pathname &&
-                            " text-secondary stroke-[4px] -rotate-[45deg] transition-colors ease-in-out duration-300",
+                            " text-secondary stroke-[4px] -rotate-[30deg] transition-colors ease-in-out duration-300",
                           isMobile
                             ? "text-secondary/[0.6]"
                             : "text-muted-foreground"

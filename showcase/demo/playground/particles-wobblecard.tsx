@@ -7,7 +7,7 @@ const ParticlesWobbleCard = () => {
   return (
     <section className="relative w-full h-max py-24 flex items-center justify-center px-2">
       <WobbleCard
-        containerClassName="z-30 h-2/3 max-w-3xl w-full bg-primary/90 text-primary-foreground "
+        containerClassName="z-10 h-2/3 max-w-3xl w-full bg-primary/90 text-primary-foreground "
         className="flex flex-col"
       >
         <div className="w-full h-full flex flex-col py-8 px-8">

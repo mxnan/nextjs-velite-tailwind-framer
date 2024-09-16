@@ -66,6 +66,12 @@ export const basecomponents = {
       {...props}
     />
   ),
+  strong: ({ className, ...props }: ComponentsProps) => (
+    <strong
+      className={cn("font-semibold text-muted-foreground", className)}
+      {...props}
+    />
+  ),
   ul: ({ className, ...props }: ComponentsProps) => (
     <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
   ),

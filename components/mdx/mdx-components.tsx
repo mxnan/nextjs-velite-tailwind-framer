@@ -1,16 +1,15 @@
 import * as runtime from "react/jsx-runtime";
-
 import { basecomponents } from "./base-mdx"; // import for base components
-
 //// some custom components
 import { Callout } from "./callout";
 import { FadeText } from "./fade-text";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
+import BounceLoader from "../ui/bounce-loader";
+import GithubStar from "@/showcase/demo/buttons/hover-reveal";
+////////////////////////////////
 //// using dynamic imports here
 import dynamic from "next/dynamic";
-import BounceLoader from "../ui/bounce-loader";
-////////////////////////////////
+
 const MdxCard = dynamic(() => import("./mdx-card").then((mod) => mod.MdxCard), {
   ssr: false,
   loading: () => (
@@ -31,7 +30,7 @@ const ComponentPreview = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="h-80 w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
+      <div className="min-h-80 w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
         <BounceLoader />
       </div>
     ),
@@ -44,6 +43,7 @@ const sharedComponents = {
   // Add your custom components here
   Callout,
   FadeText,
+  GithubStar,
   Tabs,
   TabsContent,
   TabsList,
@@ -66,5 +66,5 @@ interface MDXProps {
 // MDXContent component
 export const MDXContent = ({ code }: MDXProps) => {
   const Component = useMDXComponent(code);
-  return <Component components={sharedComponents} />;
+  return <Component  components={sharedComponents} />;
 };

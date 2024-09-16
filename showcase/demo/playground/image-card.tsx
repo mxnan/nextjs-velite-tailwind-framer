@@ -30,7 +30,7 @@ const ImageCardDemo = () => {
 
   return (
     <section className="relative h-full py-16 px-6 w-full flex-1">
-      <div className="relative h-96 z-20 rounded-xl w-full overflow-hidden">
+      <div className="relative h-96 z-10 rounded-xl w-full overflow-hidden">
         <motion.div
           initial={{ y: -100 }}
           animate={{
@@ -84,7 +84,7 @@ const ImageCardDemo = () => {
             variants={container}
             initial="hidden"
             animate="show"
-            className="z-30 text-white
+            className="z-20 text-white
            px-2 w-full h-full rounded-xl"
           >
             <motion.h2 variants={item} className="text-2xl font-bold mb-5">

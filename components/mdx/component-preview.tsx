@@ -96,14 +96,14 @@ export function ComponentPreview({
       <Button
         variant="default"
         size="icon"
-        className="absolute right-2 top-2 z-10 group/refresh"
+        className="absolute right-2 top-2 z-30 group/refresh"
         onClick={handleRefresh}
       >
         <Icons.refresh
           className={cn("h-5 w-5 transition-all duration-500 ease-in-out group-hover/refresh:rotate-45")}
         />
       </Button>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 z-20 min-h-80 flex items-center justify-center">
         <Preview key={refreshKey} />
       </div>
     </div>

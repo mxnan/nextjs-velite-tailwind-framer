@@ -43,7 +43,10 @@ export const siteConfig = {
     },
     {
       category: "Loaders",
-      items: [{ name: "Spiral", href: "/components/loaders/spiral" }],
+      items: [
+        { name: "Spin", href: "/components/loaders/spin" },
+        { name: "Shuriken", href: "/components/loaders/shuriken" },
+      ],
     },
     {
       category: "Buttons",

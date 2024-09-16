@@ -72,7 +72,9 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
               opacity: 1,
               transition: {
                 duration: 1,
-                ease: "easeInOut",
+                type: "tween",
+                stiffness: 100,
+                damping: 10,
               },
             }}
             exit={{
@@ -80,7 +82,9 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
               transition: {
                 duration: 0.5,
                 delay: 0.3,
-                ease: "easeInOut",
+                type: "tween",
+                stiffness: 100,
+                damping: 10,
               },
             }}
           />

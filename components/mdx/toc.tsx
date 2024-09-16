@@ -115,8 +115,8 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
                     transition={{
                       type: "tween",
                       duration: 0.3,
-                      stiffness: 200,
-                      damping: 30,
+                      stiffness: 100,
+                      damping: 10,
                     }}
                   />
                 )}

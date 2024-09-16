@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anybody as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://mxnan.com",
     siteName: "mxnan.com",
-    
+
     images: [
       {
         url: "/opengraph-image.png",
@@ -57,6 +57,13 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000" },
+  ],
 };
 
 export default function RootLayout({

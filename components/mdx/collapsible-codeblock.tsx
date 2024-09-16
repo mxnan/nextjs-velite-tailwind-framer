@@ -40,12 +40,12 @@ export function CollapsibleCodeBlock({
         </CollapsibleContent>
         <div
           className={cn(
-            "absolute flex items-center justify-center bg-gradient-to-b from-background/10 to-background to-90% p-2",
-            isOpened ? "inset-x-0 bottom-0 h-12 from-gray-900/30" : "inset-0 ",
+            "absolute flex items-center justify-center bg-gradient-to-b from-background/10 to-background to-90% p-2 ",
+            isOpened ? "inset-x-0 -bottom-6 h-28  from-gray-900/20" : "inset-0 ",
           )}
         >
           <CollapsibleTrigger asChild>
-            <Button variant="secondary" className="mb-8 h-8 text-xs font-semibold">
+            <Button variant="default" className="mb-4 h-8 text-xs font-semibold">
               {isOpened ? "Collapse" : expandButtonTitle}
             </Button>
           </CollapsibleTrigger>

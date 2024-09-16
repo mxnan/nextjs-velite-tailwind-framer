@@ -4,7 +4,7 @@ import React from "react";
 // update imports acc to your folder structure .
 const ParticlesDemo = () => {
   return (
-    <div className="w-full h-80">
+    <div className="w-full h-80 relative">
       <Particles
         className="absolute inset-0 "
         quantity={300}

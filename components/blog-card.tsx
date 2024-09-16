@@ -44,12 +44,20 @@ export default function BlogCard({
               opacity: 1,
               transition: {
                 duration: 0.4,
-                ease: "easeInOut",
+                type: "spring",
+                damping: 50,
+                stiffness: 200,
               },
             }}
             exit={{
               opacity: 0,
-              transition: { duration: 0.3, delay: 0.1, ease: "easeInOut" },
+              transition: {
+                duration: 0.3,
+                delay: 0.1,
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+              },
             }}
           />
         )}
@@ -73,9 +81,9 @@ export default function BlogCard({
             <p className="text-sm flex gap-2">
               <span
                 className={cn(
-                  "opacity-0 text-green-500 transition-opacity duration-500 ease-in-out",
+                  "opacity-0 font-semibold text-green-600 transition-opacity duration-500 ease-in-out",
                   hoveredIndex === index && "opacity-100",
-                  status === "draft" && "text-red-500"
+                  status === "draft" && "text-red-600"
                 )}
               >
                 {status}
