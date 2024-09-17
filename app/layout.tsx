@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/navigation/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const sans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -16,11 +17,11 @@ export const metadata: Metadata = {
   },
   description: `Personal website/blogs/components. Using Nextjs, Tailwind, Velite, Framer-motion and more.`,
 
-  metadataBase: new URL("https://mxnan.com"),
+  metadataBase: new URL("https://mxnan.vercel.app/"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://mxnan.com",
+    url: "https://mxnan.vercel.app/",
     siteName: "mxnan.com",
 
     images: [
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "https://mxnan.com",
+    site: "https://mxnan.vercel.app/",
     creator: "@etc_etcx",
     images: ["/opengraph-image.png"],
   },
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     "Blog",
     "Mdx",
   ],
-  authors: [{ name: "mxnan", url: "https://mxnan.com" }],
+  authors: [{ name: "mxnan", url: "https://mxnan.vercel.app/" }],
   creator: "mxnan",
   publisher: "mxnan",
   formatDetection: {
@@ -80,7 +81,7 @@ export default function RootLayout({
             <main className="flex-1 py-10">{children}</main>
           </div>
           <Footer />
-          <Toaster />
+          <Toaster /> <SpeedInsights />
         </Providers>
       </body>
     </html>
