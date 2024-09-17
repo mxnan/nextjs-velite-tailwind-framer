@@ -50,10 +50,10 @@ export function FormSection({ className }: { className?: string }) {
   const sendEmail = (_values: z.infer<typeof formSchema>) => {
     if (!formRef.current) return Promise.reject("Form not found");
     return emailjs.sendForm(
-      process.env.EMAILJS_SERVICE_ID!,
-      process.env.EMAILJS_TEMPLATE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
       formRef.current,
-      process.env.EMAILJS_PUBLIC_KEY!,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
     );
   };
 
