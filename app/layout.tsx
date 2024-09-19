@@ -73,15 +73,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn("relative antialiased font-sans", sans.variable)}>
         <Providers>
-          <div className="relative container flex flex-col">
+          <div className="relative container min-h-dvh flex flex-col">
             <Header />
-            <main className="flex-1 py-10">{children}</main>
+            <main className="flex-1 w-full h-full py-10">{children}</main>
           </div>
           <Footer />
-          <Toaster /> <SpeedInsights />
+          <Toaster />
+          <SpeedInsights />
         </Providers>
       </body>
     </html>

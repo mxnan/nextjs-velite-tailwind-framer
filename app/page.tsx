@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import { components, Components } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
@@ -11,7 +10,7 @@ async function getComponents(slug: string): Promise<Components | undefined> {
 export const metadata: Metadata = {
   title: "Home",
   description: "Home Page for showcasing main components",
-}
+};
 export default async function Home() {
   const components = await getComponents("components/home");
 
@@ -21,10 +20,9 @@ export default async function Home() {
 
   return (
     <section className="relative w-full">
-     <HomePageHero />
-      <div className="flex-1">
-        <MDXContent code={components.content} />
-      </div>
+      <HomePageHero />
+
+      <MDXContent code={components.content} />
     </section>
   );
 }

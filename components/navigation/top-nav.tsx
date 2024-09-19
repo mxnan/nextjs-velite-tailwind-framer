@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import ThemeToggle from "../theme-toggle";
+import { TransitionLink } from "./transition-link";
 
 export default function TopNav() {
   return (
@@ -54,50 +55,50 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   /// ////////////////////////////
   return (
-    <Link
-      key={link.link}
-      href={link.href}
-      onMouseEnter={() => setHoveredIndex(index)}
-      onMouseLeave={() => setHoveredIndex(null)}
-      className="relative block flex-1 px-3 pb-3 pt-4"
-    >
-      <AnimatePresence mode="wait">
-        {hoveredIndex === index && (
-          <motion.span
-            className="absolute bottom-1 left-0 h-1 w-full block 
-            rounded-md bg-primary "
-            layoutId="hoverBackground"
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: {
-                duration: 1,
-                type: "tween",
-                stiffness: 100,
-                damping: 10,
-              },
-            }}
-            exit={{
-              opacity: 0,
-              transition: {
-                duration: 0.5,
-                delay: 0.3,
-                type: "tween",
-                stiffness: 100,
-                damping: 10,
-              },
-            }}
-          />
-        )}
-      </AnimatePresence>
-      <span
-        className={cn(
-          "max-md:text-sm font-bold",
-          pathname === link.href ? "text-primary" : "text-foreground/60"
-        )}
+    <TransitionLink key={link.link} href={link.href}>
+      <div
+        onMouseEnter={() => setHoveredIndex(index)}
+        onMouseLeave={() => setHoveredIndex(null)}
+        className="relative block flex-1 px-3 pb-3 pt-4"
       >
-        {link.label}
-      </span>
-    </Link>
+        <AnimatePresence mode="wait">
+          {hoveredIndex === index && (
+            <motion.span
+              className="absolute bottom-1 left-0 h-1 w-full block 
+            rounded-md bg-primary "
+              layoutId="hoverBackground"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: {
+                  duration: 1,
+                  type: "tween",
+                  stiffness: 100,
+                  damping: 10,
+                },
+              }}
+              exit={{
+                opacity: 0,
+                transition: {
+                  duration: 0.5,
+                  delay: 0.3,
+                  type: "tween",
+                  stiffness: 100,
+                  damping: 10,
+                },
+              }}
+            />
+          )}
+        </AnimatePresence>
+        <span
+          className={cn(
+            "max-md:text-sm font-bold",
+            pathname === link.href ? "text-primary" : "text-foreground/60"
+          )}
+        >
+          {link.label}
+        </span>
+      </div>
+    </TransitionLink>
   );
 };

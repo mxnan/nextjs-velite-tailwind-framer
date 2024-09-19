@@ -54,7 +54,7 @@ export default function ResponsiveSidebar() {
         variants={sidebarVariants}
         transition={{
           duration: 0.6,
-          ease: "easeInOut",
+         
           type: "tween",
           damping: 50,
           stiffness: 200,
@@ -135,7 +135,7 @@ const OpenCloseButton = ({
         animate={isOpen ? "open" : "closed"}
       >
         <Button
-          variant={"secondary"}
+          variant={"default"}
           onClick={onclickFunction}
           className="flex items-center gap-4 "
         >
@@ -148,7 +148,7 @@ const OpenCloseButton = ({
             fill="none"
             strokeWidth={3}
             strokeLinecap="round"
-            className=" stroke-primary"
+            className="stroke-primary-foreground"
           >
             <motion.path
               variants={{

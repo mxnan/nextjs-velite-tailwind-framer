@@ -69,6 +69,7 @@ const ImageCardDemo = () => {
               alt="example"
               priority
               fill
+              style={{ objectFit: "cover" }}
               sizes="(100vw, 100vh)"
               className="object-cover rounded-2xl object-top"
             />

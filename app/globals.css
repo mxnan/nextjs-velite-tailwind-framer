@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
+    --gradient-start: theme('colors.stone.300 / 60%');
+    --gradient-middle: theme('colors.stone.400 / 80%');
+    --gradient-end: theme('colors.stone.500 / 80%');
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
@@ -33,6 +35,9 @@
   }
 
   .dark {
+    --gradient-start: theme('colors.stone.600 / 60%');
+    --gradient-middle: theme('colors.stone.700 / 80%');
+    --gradient-end: theme('colors.stone.800 / 80%');
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
@@ -60,19 +65,25 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-all ease-in-out duration-500;
   }
   .custom-underline {
     @apply hover:bg-[url('/underline.svg')] dark:hover:bg-[url('/underline-dark.svg')];
   }
 }
 
+/* For Page Transition */
+
+.page-transition {
+  @apply bg-gradient-to-t from-gradient-start via-gradient-middle to-gradient-end 
+         opacity-0 -translate-y-20 backdrop-blur-2xl 
+         transition-all duration-500 ease-in-out;
+}
 /* For View transition when theme toggle is clicked */
 
 /* For browsers that don't support View Transitions */
