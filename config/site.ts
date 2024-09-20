@@ -42,6 +42,15 @@ export const siteConfig = {
       ],
     },
     {
+      category: "Text",
+      items: [
+        {
+          name: "Bubble",
+          href: "/components/text/bubble",
+        },
+      ],
+    },
+    {
       category: "Loaders",
       items: [
         { name: "Spin", href: "/components/loaders/spin" },
