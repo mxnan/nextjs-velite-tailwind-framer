@@ -16,7 +16,6 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import ThemeToggle from "../theme-toggle";
-import { TransitionLink } from "./transition-link";
 
 export default function MobileNav() {
   const [open, setOpen] = React.useState(false);
@@ -98,7 +97,7 @@ const MobileLink = ({
 }: MobileLinkProps) => {
   const router = useRouter();
   return (
-    <TransitionLink
+    <Link
       href={href}
       onClick={() => {
         router.push(href.toString());
@@ -108,6 +107,6 @@ const MobileLink = ({
       {...props}
     >
       {children}
-    </TransitionLink>
+    </Link>
   );
 };

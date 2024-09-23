@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --gradient-start: theme('colors.stone.300 / 60%');
-    --gradient-middle: theme('colors.stone.400 / 80%');
-    --gradient-end: theme('colors.stone.500 / 80%');
+    --gradient-start: theme("colors.gray.200 / 20%");
+    --gradient-middle: theme("colors.gray.500 / 50%");
+    --gradient-end: theme("colors.white / 80%");
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
@@ -35,9 +35,9 @@
   }
 
   .dark {
-    --gradient-start: theme('colors.stone.600 / 60%');
-    --gradient-middle: theme('colors.stone.700 / 80%');
-    --gradient-end: theme('colors.stone.800 / 80%');
+    --gradient-start: theme("colors.gray.500 / 20%");
+    --gradient-middle: theme("colors.gray.800 / 50%");
+    --gradient-end: theme("colors.black / 80%");
     --background: 20 14.3% 4.1%;
     --foreground: 60 9.1% 97.8%;
     --card: 20 14.3% 4.1%;
@@ -77,15 +77,17 @@
   }
 }
 
-/* For Page Transition */
+/******************************PAGE TRANSITIONS************************************/
 
 .page-transition {
   @apply bg-gradient-to-t from-gradient-start via-gradient-middle to-gradient-end 
          opacity-0 -translate-y-20 backdrop-blur-2xl 
          transition-all duration-500 ease-in-out;
 }
-/* For View transition when theme toggle is clicked */
 
+/****************************VIEW TRANSITIONS************************************/
+
+/* For View transition when theme toggle is clicked */
 /* For browsers that don't support View Transitions */
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -113,7 +115,7 @@
 ::view-transition-new(root) {
   animation: 0.5s ease-in both fade-in;
 }
-/* For View transition when theme toggle is clicked */
+/*************************SCROLLBAR CLASSES************************************/
 
 /* scrollbar track as class for codeblock */
 .scrollbartrack::-webkit-scrollbar-track {
@@ -135,4 +137,4 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-white dark:bg-gray-500;
 }
-/* root scrollbar */
+/*************************************************************/

@@ -1,0 +1,231 @@
+---
+title: Blur/Vignette
+description: Blur Vignette effect
+category: playground
+tags: ["playground", "blur", "vignette"]
+---
+
+<FadeText
+  text="Blur/Vignette"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+---
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview
+  path="blur-vignette-demo"
+  category="playground"
+  usingCN
+  usingFramer
+/>
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```tsx
+import {
+  BlurVignetteEffect,
+  BlurVignetteEffectArticle,
+} from "@/showcase/_components/blur-vignette-effect";
+import React from "react";
+
+function BlurVignetteDemo() {
+  return (
+    <>
+      <div className="w-full h-96 rounded-xl overflow-hidden">
+        <BlurVignetteEffect
+          radius="0px"
+          inset="0px"
+          transitionLength="200px"
+          blur="100px"
+          className="w-full h-full"
+        >
+          <video
+            autoPlay={true}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            content="true"
+            className="w-full h-full object-cover"
+          >
+            <source
+              src="https://cdn.pixabay.com/video/2023/11/13/188912-884171167_large.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <BlurVignetteEffectArticle />
+        </BlurVignetteEffect>
+      </div>
+    </>
+  );
+}
+
+export default BlurVignetteDemo;
+
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>
+
+---
+<p className="text-2xl font-bold">Installation</p>
+
+<Steps>
+
+
+
+<Step>
+**Copy blur-vignette-effect.tsx**
+<CollapsibleCodeBlock>
+```tsx
+"use client";
+import React, { createContext, useContext } from "react";
+import { motion, MotionProps } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface BlurVignetteEffectContextProps {
+  radius?: string;
+  inset?: string;
+  transitionLength?: string;
+  blur?: string;
+}
+
+const BlurVignetteEffectContext = createContext<BlurVignetteEffectContextProps>(
+  {
+    radius: "24px",
+    inset: "20px",
+    transitionLength: "44px",
+    blur: "6px",
+  }
+);
+
+export const useBlurVignetteEffectContext = () =>
+  useContext(BlurVignetteEffectContext);
+
+interface BlurVignetteEffectProps extends MotionProps {
+  className?: string;
+  children: React.ReactNode;
+  radius?: string;
+  inset?: string;
+  transitionLength?: string;
+  blur?: string;
+}
+
+export const BlurVignetteEffect: React.FC<BlurVignetteEffectProps> = ({
+  className,
+  children,
+  radius = "24px",
+  inset = "20px",
+  transitionLength = "44px",
+  blur = "6px",
+  ...motionProps
+}) => {
+  return (
+    <BlurVignetteEffectContext.Provider
+      value={{ radius, inset, transitionLength, blur }}
+    >
+      <motion.div
+        className={cn("relative overflow-hidden", className)}
+        style={{ borderRadius: radius }}
+        {...motionProps}
+      >
+        {children}
+      </motion.div>
+    </BlurVignetteEffectContext.Provider>
+  );
+};
+
+interface BlurVignetteEffectArticleProps extends MotionProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const BlurVignetteEffectArticle: React.FC<
+  BlurVignetteEffectArticleProps
+> = ({ children, className, ...motionProps }) => {
+  const { radius, inset, transitionLength, blur } =
+    useBlurVignetteEffectContext();
+  const gradient1 = `linear-gradient(to right, black, black ${inset}, transparent calc(${inset} + ${transitionLength}), transparent calc(100% - ${transitionLength} - ${inset}), black calc(100% - ${inset}))`;
+  const gradient2 = `linear-gradient(to bottom, black, black ${inset}, transparent calc(${inset} + ${transitionLength}), transparent calc(100% - ${transitionLength} - ${inset}), black calc(100% - ${inset}))`;
+  const radialGradients = [
+    `radial-gradient(circle at bottom right, transparent 0px, transparent calc(${radius} - ${transitionLength}), black ${radius})`,
+    `radial-gradient(circle at bottom left, transparent 0px, transparent calc(${radius} - ${transitionLength}), black ${radius})`,
+    `radial-gradient(circle at top left, transparent 0px, transparent calc(${radius} - ${transitionLength}), black ${radius})`,
+    `radial-gradient(circle at top right, transparent 0px, transparent calc(${radius} - ${transitionLength}), black ${radius})`,
+  ];
+
+  const maskImage = `${gradient1},${gradient2},${radialGradients.join(
+    ","
+  )}` as string;
+  return (
+    <motion.div
+      className={cn("absolute inset-0 backdrop-blur", className)}
+      style={{
+        borderRadius: radius,
+        maskImage: maskImage,
+        maskSize: `
+          100% calc(100% - (${inset} + ${radius}) * 2),
+          calc(100% - (${inset} + ${radius}) * 2) 100%,
+          calc(${radius} + ${inset}) calc(${radius} + ${inset}),
+          calc(${radius} + ${inset}) calc(${radius} + ${inset}),
+          calc(${radius} + ${inset}) calc(${radius} + ${inset}),
+          calc(${radius} + ${inset}) calc(${radius} + ${inset})
+        `,
+        maskPosition: `
+          0 calc(${inset} + ${radius}),
+          calc(${inset} + ${radius}) 0,
+          0 0,
+          100% 0,
+          100% 100%,
+          0 100%
+        `,
+        maskRepeat: "no-repeat",
+        backdropFilter: `blur(${blur})`,
+      }}
+      {...motionProps}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+```
+</CollapsibleCodeBlock>
+
+</Step>
+<Step>
+**use as above example** 
+</Step>
+</Steps>
+
+
+---
+
+<MdxCard className="p-4 my-4">
+<p className="text-2xl font-bold mb-3">Vignette cards</p>
+
+<ComponentPreview
+  path="blur-vignette-card"
+  category="playground"
+  usingCN
+  usingFramer
+  forShowcase
+/>
+</MdxCard>
+

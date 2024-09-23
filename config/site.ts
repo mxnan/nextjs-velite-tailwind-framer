@@ -39,6 +39,10 @@ export const siteConfig = {
           name: "Particles",
           href: "/components/playground/particles",
         },
+        {
+          name: "Blur/Vignette",
+          href: "/components/playground/blur-vignette",
+        },
       ],
     },
     {
