@@ -12,7 +12,8 @@ import {
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "../icons";
-import Link, { LinkProps } from "next/link";
+import { Link } from 'next-view-transitions'
+import { LinkProps } from "next/link";
 import { useRouter } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import ThemeToggle from "../theme-toggle";

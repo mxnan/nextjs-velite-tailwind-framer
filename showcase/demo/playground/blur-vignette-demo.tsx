@@ -14,6 +14,18 @@ function BlurVignetteDemo() {
           transitionLength="200px"
           blur="100px"
           className="w-full h-full"
+          whileHover={{
+            scale: 1.02,
+            y: -5,
+            opacity: 0.8,
+            transition: {
+              duration: 0.5,
+              ease: "easeInOut",
+              type: "spring",
+              damping: 50,
+              stiffness: 200,
+            },
+          }}
         >
           <video
             autoPlay={true}

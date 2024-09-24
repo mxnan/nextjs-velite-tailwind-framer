@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import React from "react";
 import {
   Tooltip,
@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Icons } from "../icons";
 import dynamic from "next/dynamic";
-import { TransitionLink } from "./transition-link";
 
 const RetroGrid = dynamic(() => import("../custom/retro-grid"), { ssr: false });
 
@@ -78,13 +77,13 @@ const Footer: React.FC = () => {
         </div>
         <nav className="flex flex-wrap items-center gap-6 justify-center mr-4">
           {FooterLinks.main.map((item) => (
-            <TransitionLink
+            <Link
               key={item.name}
               href={item.href}
               className="custom-underline px-1 pb-2 font-semibold"
             >
               {item.name}
-            </TransitionLink>
+            </Link>
           ))}
         </nav>
 

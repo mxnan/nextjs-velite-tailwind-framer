@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import React, { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import ThemeToggle from "../theme-toggle";
-import { TransitionLink } from "./transition-link";
+
 
 export default function TopNav() {
   return (
@@ -55,7 +55,7 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   /// ////////////////////////////
   return (
-    <TransitionLink key={link.link} href={link.href}>
+    <Link key={link.link} href={link.href}>
       <div
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
@@ -99,6 +99,6 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
           {link.label}
         </span>
       </div>
-    </TransitionLink>
+    </Link>
   );
 };

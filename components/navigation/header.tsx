@@ -1,11 +1,11 @@
 import React from "react";
 import { siteConfig } from "@/config/site";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import dynamic from "next/dynamic";
-import { TransitionLink } from "./transition-link";
+
 
 const TopNav = dynamic(() => import("./top-nav"), { ssr: false });
 const MobileNav = dynamic(() => import("./mobile-nav"), { ssr: false });
@@ -18,7 +18,7 @@ export default function Header() {
       supports-[backdrop-filter]:bg-background/60"
     >
       <nav className="h-14 flex items-center justify-between">
-        <TransitionLink
+        <Link
           href="/"
           className={cn(
             "mr-4",
@@ -27,7 +27,7 @@ export default function Header() {
         >
           <Icons.logo className="h-6 w-6" />
           <span className="sr-only">{siteConfig.name}</span>
-        </TransitionLink>
+        </Link>
         <TopNav />
 
         <div className="md:hidden">
