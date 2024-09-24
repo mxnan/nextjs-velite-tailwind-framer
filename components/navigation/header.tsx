@@ -1,10 +1,11 @@
 import React from "react";
 import { siteConfig } from "@/config/site";
-import Link from "next/link";
+import { Link } from 'next-view-transitions'
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import dynamic from "next/dynamic";
+
 
 const TopNav = dynamic(() => import("./top-nav"), { ssr: false });
 const MobileNav = dynamic(() => import("./mobile-nav"), { ssr: false });

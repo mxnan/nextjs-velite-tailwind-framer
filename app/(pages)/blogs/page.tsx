@@ -36,7 +36,13 @@ export default async function BlogsPage() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { duration: 1, delay: 0.3, type: "spring" },
+                transition: {
+                  duration: 1,
+                  delay: 0.5,
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 15,
+                },
               },
             }}
             className="scroll-m-10 uppercase tracking-tight

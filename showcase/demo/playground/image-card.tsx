@@ -68,9 +68,11 @@ const ImageCardDemo = () => {
               src="https://images.unsplash.com/photo-1724127902295-b2f5ba9a2b20?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="example"
               priority
-              fill
+              width={2048}
+              height={1280}
+              style={{ objectFit: "cover" }}
               sizes="(100vw, 100vh)"
-              className="object-cover rounded-2xl object-top"
+              className="object-cover h-full rounded-2xl object-top"
             />
           </motion.div>
         </motion.div>
@@ -100,8 +102,7 @@ const ImageCardDemo = () => {
             <motion.p variants={item} className="text-sm mt-1 font-medium">
               Read more ?
             </motion.p>
-
-            <Button className="mt-5">Contact</Button>
+            <Button className="mt-5 font-semibold">Contact</Button>
           </motion.div>
         </WobbleCard>
       </div>

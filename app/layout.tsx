@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anybody as FontSans } from "next/font/google";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Header from "@/components/navigation/header";
@@ -73,17 +74,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={cn("relative antialiased font-sans", sans.variable)}>
-        <Providers>
-          <div className="relative container flex flex-col">
-            <Header />
-            <main className="flex-1 py-10">{children}</main>
-          </div>
-          <Footer />
-          <Toaster /> <SpeedInsights />
-        </Providers>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn("relative antialiased font-sans", sans.variable)}>
+          <Providers>
+            <div className="relative container min-h-dvh flex flex-col">
+              <Header />
+              <main className="flex-1 w-full h-full py-10">{children}</main>
+            </div>
+            <Footer />
+            <Toaster />
+            <SpeedInsights />
+          </Providers>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

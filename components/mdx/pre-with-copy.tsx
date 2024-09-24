@@ -56,7 +56,7 @@ const Pre: React.FC<PreProps> = ({ children, className, ...props }) => {
         onClick={copyToClipboard}
         className="absolute right-5 top-4 p-2 rounded-full z-10
          text-white  group-hover:text-white/80
-         group-hover:bg-black
+         group-hover:bg-stone-800
           transition-colors duration-500 ease-in-out"
         aria-label="Copy code"
       >

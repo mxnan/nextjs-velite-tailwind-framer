@@ -39,8 +39,20 @@ export const siteConfig = {
           name: "Particles",
           href: "/components/playground/particles",
         },
+        {
+          name: "Blur/Vignette",
+          href: "/components/playground/blur-vignette",
+        },
       ],
     },
+    {
+      category: "Buttons",
+      items: [
+        { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },
+        { name: "Magnet", href: "/components/buttons/magnet" },
+      ],
+    },
+
     {
       category: "Loaders",
       items: [
@@ -49,9 +61,12 @@ export const siteConfig = {
       ],
     },
     {
-      category: "Buttons",
+      category: "Text",
       items: [
-        { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },
+        {
+          name: "Bubble",
+          href: "/components/text/bubble",
+        },
       ],
     },
   ],

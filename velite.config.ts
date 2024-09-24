@@ -36,7 +36,6 @@ const components = defineCollection({
       description: s.string().max(200).optional(),
       category: s.string(),
       tags: s.string().array().optional(),
-      toc: s.toc(),
       content: s.mdx(),
     })
     .transform((data) => ({

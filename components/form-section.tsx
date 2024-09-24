@@ -77,7 +77,7 @@ export function FormSection({ className }: { className?: string }) {
           />
         </LabelInputContainer>
       </div>
-      <LabelInputContainer className="mb-4">
+      <LabelInputContainer className="my-4">
         <Label htmlFor="email">Email Address</Label>
         <Input
           id="email"
@@ -90,7 +90,7 @@ export function FormSection({ className }: { className?: string }) {
 
       <Button
         type="submit"
-        className="relative my-3 flex items-center gap-3"
+        className="relative my-5 flex items-center gap-3"
         disabled={isSubmitting}
       >
         {isSubmitSuccessful ? <span>Sent !</span> : <span>Send ?</span>}

@@ -54,7 +54,7 @@ export default function ResponsiveSidebar() {
         variants={sidebarVariants}
         transition={{
           duration: 0.6,
-          ease: "easeInOut",
+
           type: "tween",
           damping: 50,
           stiffness: 200,
@@ -64,7 +64,7 @@ export default function ResponsiveSidebar() {
         <nav
           className={cn(
             "flex-1 flex flex-col gap-4",
-            isMobile ? "pr-6 py-10" : ""
+            isMobile ? "pr-6 py-6" : ""
           )}
         >
           {/* Mapping over componentSidebar from lib/site.config*/}
@@ -135,7 +135,7 @@ const OpenCloseButton = ({
         animate={isOpen ? "open" : "closed"}
       >
         <Button
-          variant={"secondary"}
+          variant={"default"}
           onClick={onclickFunction}
           className="flex items-center gap-4 "
         >
@@ -148,7 +148,7 @@ const OpenCloseButton = ({
             fill="none"
             strokeWidth={3}
             strokeLinecap="round"
-            className=" stroke-primary"
+            className="stroke-primary-foreground"
           >
             <motion.path
               variants={{
