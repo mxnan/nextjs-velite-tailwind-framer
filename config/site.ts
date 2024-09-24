@@ -46,14 +46,13 @@ export const siteConfig = {
       ],
     },
     {
-      category: "Text",
+      category: "Buttons",
       items: [
-        {
-          name: "Bubble",
-          href: "/components/text/bubble",
-        },
+        { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },
+        { name: "Magnet", href: "/components/buttons/magnet" },
       ],
     },
+
     {
       category: "Loaders",
       items: [
@@ -62,9 +61,12 @@ export const siteConfig = {
       ],
     },
     {
-      category: "Buttons",
+      category: "Text",
       items: [
-        { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },
+        {
+          name: "Bubble",
+          href: "/components/text/bubble",
+        },
       ],
     },
   ],

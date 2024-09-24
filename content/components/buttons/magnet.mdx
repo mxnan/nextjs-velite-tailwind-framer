@@ -1,0 +1,196 @@
+---
+title: Magnet Button
+description: hover magnet effect button
+category: buttons
+tags: ["buttons", "magnet"]
+---
+
+<FadeText
+  text="Magnet Button"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+---
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview path="magnet" category="buttons" usingCN usingFramer />
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```tsx
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+
+const MagnetButtonDemo = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!buttonRef.current || !isHovered) return;
+
+      const rect = buttonRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const distanceX = e.clientX - centerX;
+      const distanceY = e.clientY - centerY;
+
+      const maxDistance = 35;
+      const distance = Math.min(
+        Math.sqrt(distanceX * distanceX + distanceY * distanceY),
+        maxDistance
+      );
+      const angle = Math.atan2(distanceY, distanceX);
+
+      const newX = Math.cos(angle) * distance;
+      const newY = Math.sin(angle) * distance;
+
+      setPosition({ x: newX, y: newY });
+    };
+
+    if (isHovered) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [isHovered]);
+
+  return (
+    <motion.div
+      ref={buttonRef}
+      className="relative z-10 w-52 h-52 rounded-full flex items-center justify-center cursor-pointer overflow-hidden"
+      animate={{
+        x: position.x,
+        y: position.y,
+      }}
+      transition={{ type: "spring", stiffness: 150, damping: 15 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setPosition({ x: 0, y: 0 });
+      }}
+    >
+      {/* Rotating border with four symmetrical cones */}
+      <motion.div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background: `
+      conic-gradient(
+        from 0deg,
+        transparent 0deg 80deg,
+        currentColor 80deg 90deg,
+        transparent 90deg 170deg,
+        currentColor 170deg 180deg,
+        transparent 180deg 260deg,
+        currentColor 260deg 270deg,
+        transparent 270deg 350deg,
+        currentColor 350deg
+      )
+    `,
+          backgroundSize: "100% 100%",
+        }}
+        animate={{
+          rotate: 360,
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+      {/* Button content */}
+      <div className="absolute inset-1 rounded-full overflow-hidden">
+        <motion.div
+          className="absolute inset-0 rounded-full bg-indigo-500"
+          initial={{ scale: 1 }}
+          animate={{ scale: isHovered ? 0 : 1 }}
+          transition={{
+            duration: 0.6,
+            type: "tween",
+            stiffness: 150,
+            damping: 15,
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 rounded-full bg-lime-400"
+          initial={{ scale: 0 }}
+          animate={{ scale: isHovered ? 1 : 0 }}
+          transition={{
+            duration: 0.6,
+            type: "tween",
+            stiffness: 150,
+            damping: 15,
+          }}
+        />
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isHovered ? 0 : 1 }}
+          transition={{
+            duration: 0.2,
+            delay: 0.1,
+            type: "spring",
+            stiffness: 150,
+            damping: 15,
+          }}
+        >
+          <ArrowRight className="text-stone-100" strokeWidth={3} size={64} />
+        </motion.div>
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{
+            duration: 0.2,
+            delay: 0.1,
+            type: "spring",
+            stiffness: 150,
+            damping: 15,
+          }}
+        >
+          <Link
+            href="/components"
+            className={cn(
+              buttonVariants({ variant: "default", size: "lg" }),
+              "text-lg"
+            )}
+          >
+            See more ?
+          </Link>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default MagnetButtonDemo;
+
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>
+
