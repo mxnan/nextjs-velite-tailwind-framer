@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 const anybodyBold = fetch(
-  new URL("../../Anybody-Bold.ttf", import.meta.url)
+  new URL("../../anybody-bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 export async function GET(req: NextRequest) {

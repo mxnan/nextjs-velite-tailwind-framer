@@ -88,8 +88,8 @@ export default async function ComponentSlugPage({
   }
 
   return (
-    <section className="flex-1 relative">
+    <>
       <MDXContent code={component.content} />
-    </section>
+    </>
   );
 }

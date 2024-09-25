@@ -1,7 +1,7 @@
 import ParticlesReveal from "@/showcase/_components/particles-reveal";
 import React from "react";
 
-const ParticlesRevealTextDemo = () => {
+export default function ParticlesRevealTextDemo() {
   return (
     <div className="w-2/3 h-80 flex items-center justify-center">
       <ParticlesReveal width="fit-content" duration={2}>
@@ -11,6 +11,4 @@ const ParticlesRevealTextDemo = () => {
       </ParticlesReveal>
     </div>
   );
-};
-
-export default ParticlesRevealTextDemo;
+}

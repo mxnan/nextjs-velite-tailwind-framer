@@ -6,7 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-const MagnetButtonDemo = () => {
+export default function MagnetButtonDemo() {
   const [isHovered, setIsHovered] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -150,6 +150,4 @@ const MagnetButtonDemo = () => {
       </div>
     </motion.div>
   );
-};
-
-export default MagnetButtonDemo;
+}

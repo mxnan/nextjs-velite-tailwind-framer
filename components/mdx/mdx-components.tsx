@@ -66,5 +66,6 @@ interface MDXProps {
 // MDXContent component
 export const MDXContent = ({ code }: MDXProps) => {
   const Component = useMDXComponent(code);
-  return <Component  components={sharedComponents} />;
+  return <section className="w-full h-full relative"><Component  components={sharedComponents} />
+    </section>;
 };

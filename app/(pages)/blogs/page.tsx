@@ -9,7 +9,7 @@ import React from "react";
 const BlogCard = dynamic(() => import("@/components/blog-card"), {
   ssr: false,
   loading: () => (
-    <div className="h-full w-full my-6 bg-secondary rounded-lg flex items-center justify-center ">
+    <div className="h-3/4 w-3/4 my-6 bg-secondary rounded-lg flex items-center justify-center ">
       <BounceLoader />
     </div>
   ),

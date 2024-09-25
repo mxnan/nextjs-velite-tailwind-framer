@@ -19,10 +19,10 @@ export default async function Home() {
   }
 
   return (
-    <section className="relative w-full">
+    <>
       <HomePageHero />
 
       <MDXContent code={components.content} />
-    </section>
+    </>
   );
 }

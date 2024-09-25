@@ -4,7 +4,7 @@ import {
 } from "@/showcase/_components/blur-vignette-effect";
 import React from "react";
 
-function BlurVignetteDemo() {
+export default function BlurVignetteDemo() {
   return (
     <>
       <div className="w-full h-96 rounded-xl overflow-hidden">
@@ -47,5 +47,3 @@ function BlurVignetteDemo() {
     </>
   );
 }
-
-export default BlurVignetteDemo;

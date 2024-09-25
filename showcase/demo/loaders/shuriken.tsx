@@ -3,7 +3,7 @@ import React from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { Fan } from "lucide-react";
 
-const ShurikenLoader: React.FC = () => {
+export default function ShurikenLoaderDemo() {
   const variants: Variants = {
     initial: {
       opacity: 1,
@@ -49,6 +49,4 @@ const ShurikenLoader: React.FC = () => {
       </motion.div>
     </AnimatePresence>
   );
-};
-
-export default ShurikenLoader;
+}

@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { WobbleCard } from "@/showcase/_components/wobble-card";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-const ImageCardDemo = () => {
+
+export default function ImageCard() {
   const container = {
     hidden: { y: -100 },
     show: {
@@ -59,7 +60,7 @@ const ImageCardDemo = () => {
                 stiffness: 200,
               },
             }}
-            className="relative w-full h-full"
+            className="relative w-full h-96 overflow-hidden rounded-2xl"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.5 }}
           >
@@ -67,12 +68,11 @@ const ImageCardDemo = () => {
               title="example"
               src="https://images.unsplash.com/photo-1724127902295-b2f5ba9a2b20?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="example"
+              height={2000}
+              width={1280}
               priority
-              width={2048}
-              height={1280}
-              style={{ objectFit: "cover" }}
-              sizes="(100vw, 100vh)"
-              className="object-cover h-full rounded-2xl object-top"
+              style={{ objectFit: "cover", objectPosition: "top" }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             />
           </motion.div>
         </motion.div>
@@ -108,6 +108,4 @@ const ImageCardDemo = () => {
       </div>
     </section>
   );
-};
-
-export default ImageCardDemo;
+}

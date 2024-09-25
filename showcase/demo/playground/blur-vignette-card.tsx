@@ -5,7 +5,7 @@ import {
 import Image from "next/image";
 import React from "react";
 
-function BlurVignetteCardDemo() {
+export default function BlurVignetteCardDemo() {
   return (
     <>
       <div className="w-full h-96 text-black/80 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
@@ -57,6 +57,7 @@ function BlurVignetteCardDemo() {
           </BlurVignetteEffectArticle>
         </BlurVignetteEffect>
         <BlurVignetteEffect
+          className="hidden md:block"
           radius="24px"
           inset="100px"
           transitionLength="200px"
@@ -108,5 +109,3 @@ function BlurVignetteCardDemo() {
     </>
   );
 }
-
-export default BlurVignetteCardDemo;

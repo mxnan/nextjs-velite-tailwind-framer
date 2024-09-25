@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 export default function ContactPage() {
   return (
-    <section className="flex-1 relative">
+    <>
       <div className="max-w-2xl mx-auto space-y-8 py-24">
         <FadeText
           text="Connect with me ?"
@@ -45,6 +45,6 @@ export default function ContactPage() {
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
         <FormSection className="pt-8 px-6" />
       </div>
-    </section>
+    </>
   );
 }

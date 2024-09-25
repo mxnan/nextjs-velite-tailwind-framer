@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const SpinDemo = () => {
+export default function SpinDemo() {
   const circles = [
     { size: 100, duration: 3 },
     { size: 80, duration: 2.5 },
@@ -41,6 +41,4 @@ const SpinDemo = () => {
       ))}
     </div>
   );
-};
-
-export default SpinDemo;
+}

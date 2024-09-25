@@ -2,7 +2,8 @@ import Particles from "@/showcase/_components/particles";
 import TypingWords from "@/showcase/_components/typing-words";
 import React from "react";
 // update imports acc to your folder structure .
-const ParticlesDemo = () => {
+
+export default function ParticlesDemo() {
   return (
     <div className="w-full h-80 relative">
       <Particles
@@ -12,20 +13,19 @@ const ParticlesDemo = () => {
         size={4}
         refresh
       />
-      <div className="absolute flex flex-col items-center space-y-6 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute w-full flex flex-col items-center space-y-6 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <TypingWords
-          className="px-5 py-3 w-max bg-secondary-foreground/80 rounded-lg text-3xl font-semibold text-secondary"
+          className="px-5 py-3 w-fit bg-secondary-foreground/80 rounded-lg text-3xl font-semibold text-secondary"
           text="particles.tsx"
           duration={50}
         />
         <TypingWords
-          className="px-3 w-max py-1 bg-primary/80 rounded-lg text-xs font-semibold text-secondary"
+          className="px-3 w-fit py-1 bg-primary/80 rounded-lg text-xs font-semibold text-secondary"
           text="Use as background for hero sections"
           duration={100}
         />
       </div>
     </div>
   );
-};
+}
 
-export default ParticlesDemo;

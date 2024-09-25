@@ -3,7 +3,7 @@ import Particles from "@/showcase/_components/particles";
 import { WobbleCard } from "@/showcase/_components/wobble-card";
 import React from "react";
 
-const ParticlesWobbleCard = () => {
+export default function ParticlesWobbleCardDemo() {
   return (
     <section className="relative w-full h-max py-24 flex items-center justify-center px-2">
       <WobbleCard
@@ -12,7 +12,7 @@ const ParticlesWobbleCard = () => {
       >
         <div className="w-full h-full flex flex-col py-8 px-8">
           <span className="text-3xl font-semibold mb-4">Contact ?</span>
-         <FormSection className="px-4" />
+          <FormSection className="px-4" />
         </div>
       </WobbleCard>
       <Particles
@@ -25,6 +25,4 @@ const ParticlesWobbleCard = () => {
       />
     </section>
   );
-};
-
-export default ParticlesWobbleCard;
+}

@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const GithubStar = () => {
+export default function GithubStarDemo() {
   const buttonVariant = {
     initial: {
       opacity: 0,
@@ -120,6 +120,4 @@ const GithubStar = () => {
       </a>
     </section>
   );
-};
-
-export default GithubStar;
+}

@@ -12,12 +12,12 @@ export default function ComponentsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative">
+    <>
       <DynamicResponsiveSidebar />
       <div className="relative pt-16 max-w-4xl 2xl:max-w-6xl xl:ml-[calc(50%-30rem)] mx-auto">
         <ProgressBar />
         {children}
       </div>
-    </div>
+    </>
   );
 }
