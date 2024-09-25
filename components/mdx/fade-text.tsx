@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { motion, Variants } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type FadeTextProps = {
   className?: string;
@@ -51,9 +52,10 @@ export function FadeText({
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
+      className="w-full"
       variants={FADE_ANIMATION_VARIANTS}
     >
-      <motion.span className={className}>{text}</motion.span>
+      <motion.span className={cn("w-fit", className)}>{text}</motion.span>
     </motion.div>
   );
 }

@@ -78,9 +78,9 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={cn("relative antialiased font-sans", sans.variable)}>
           <Providers>
-            <div className="relative container min-h-dvh flex flex-col">
+            <div className="relative container flex flex-col">
               <Header />
-              <main className="relative flex-1 w-full h-full py-10">{children}</main>
+              <main className="relative flex-1 min-h-screen w-full h-full py-10">{children}</main>
             </div>
             <Footer />
             <Toaster />
