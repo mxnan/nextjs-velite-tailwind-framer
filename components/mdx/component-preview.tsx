@@ -62,7 +62,7 @@ export function ComponentPreview({
                 <span
                   className={cn(
                     "font-semibold text-base",
-                    usingCN ? "text-green-500" : "text-red-500"
+                    usingCN ? "text-lime-400 dark:text-indigo-600" : "text-red-500"
                   )}
                 >
                   Tailwind
@@ -83,7 +83,7 @@ export function ComponentPreview({
                 <span
                   className={cn(
                     "font-medium text-sm",
-                    usingFramer ? "text-green-500" : "text-red-500"
+                    usingFramer ? "text-lime-400 dark:text-indigo-600" : "text-red-500"
                   )}
                 >
                   Framer motion

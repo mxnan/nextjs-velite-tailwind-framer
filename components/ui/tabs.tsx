@@ -32,7 +32,7 @@ const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        "relative bg-transparent text-sm px-3 pb-2 pt-2 font-medium text-muted-foreground shadow-none transition-colors duration-300 ease-in-out data-[state=active]:font-bold data-[state=active]:text-foreground data-[state=active]:shadow-none",
+        "relative bg-transparent text-sm px-3 pb-2 pt-2 font-semibold text-muted-foreground shadow-none transition-all duration-300 ease-in-out data-[state=active]:font-bold data-[state=active]:text-foreground data-[state=active]:shadow-none",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -43,15 +43,16 @@ const TabsTrigger = React.forwardRef<
       {isHovered === true && (
         <AnimatePresence>
           <motion.span
-            className="absolute bottom-0 left-0 h-[3px] rounded-xl w-full bg-primary"
-            initial={{ opacity: 0, y: 10, scaleX: 0 }}
-            animate={{ opacity: 1, y: 0, scaleX: 1 }}
-            exit={{ opacity: 0, y: -10, scaleX: 0 }}
+            className="absolute bottom-0 left-0  rounded-xl w-full bg-primary"
+            initial={{ opacity: 0, y: 10, scaleX: 0.3, height: 1 }}
+            animate={{ opacity: 1, y: 0, scaleX: 1, height: 3 }}
+            exit={{ opacity: 0, y: -10, scaleX: 0.3, height: 1 }}
             transition={{
               duration: 0.5,
               type: "tween",
+              ease: "easeInOut",
               stiffness: 100,
-              damping: 20,
+              damping: 15,
             }}
           />
         </AnimatePresence>
@@ -74,14 +75,15 @@ const TabsContent = React.forwardRef<
     {...props}
   >
     <motion.div
-      initial={{ opacity: 0, y: 10, scale: 0.9 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+      initial={{ opacity: 0, scaleX: 0.9, scaleY: 1.1 }}
+      animate={{ opacity: 1, scaleX: 1, scaleY: 1 }}
+      exit={{ opacity: 0, scaleX: 0.9, scaleY: 1.1 }}
       transition={{
-        duration: 0.3,
+        duration: 0.5,
         type: "tween",
+
         stiffness: 100,
-        damping: 20,
+        damping: 15,
       }}
     >
       {props.children}

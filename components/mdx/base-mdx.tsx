@@ -84,7 +84,7 @@ export const basecomponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "[&>*]:text-muted-foreground mt-6 border-l-4 border-blue-500  pl-6 italic",
+        "[&>*]:text-muted-foreground mt-6 border-l-4 border-indigo-600 dark:border-lime-400  pl-6 italic",
         className
       )}
       {...props}
@@ -95,19 +95,19 @@ export const basecomponents = {
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
-      <table className={cn("w-full max-w-4xl", className)} {...props} />
+      <table className={cn("w-full max-w-4xl ", className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr
-      className={cn("even:bg-secondary m-0 border-t p-0", className)}
+      className={cn("even:bg-secondary m-0 border-t  p-0", className)}
       {...props}
     />
   ),
   th: ({ className, ...props }: ComponentsProps) => (
     <th
       className={cn(
-        "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -116,7 +116,7 @@ export const basecomponents = {
   td: ({ className, ...props }: ComponentsProps) => (
     <td
       className={cn(
-        "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
         className
       )}
       {...props}
@@ -138,7 +138,7 @@ export const basecomponents = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <CustomLink
       className={cn(
-        "font-semibold text-primary/60 mx-1 pb-2 custom-underline text-sm",
+        "font-semibold text-indigo-600 dark:text-lime-400 mx-1 pb-2 custom-underline text-sm",
         className
       )}
       {...props}
@@ -150,7 +150,7 @@ export const basecomponents = {
   ),
   Steps: ({ ...props }: React.ComponentProps<"div">) => (
     <div
-      className="[&>h3]:step steps mb-12 ml-4 border-l-[4px] border-primary/50 pl-8 [counter-reset:step]"
+      className="[&>h3]:step rounded-md steps mb-12 ml-4 border-l-[4px] border-l-indigo-600 dark:border-l-lime-400 pl-8 [counter-reset:step]"
       {...props}
     />
   ),

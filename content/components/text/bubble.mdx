@@ -37,13 +37,13 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const BubbleDemo = () => {
+export default function BubbleDemo() {
   return (
     <div className="p-10">
       <BubbleText text="Bubble Text (hover)" />
     </div>
   );
-};
+}
 
 const BubbleText = ({ text }: { text: string }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -61,7 +61,7 @@ const BubbleText = ({ text }: { text: string }) => {
             {hoveredIndex === idx && (
               <motion.span
                 className="absolute inset-0 "
-                initial={{ opacity: 0,x: 5, scale: 0.9 }}
+                initial={{ opacity: 0, x: 5, scale: 0.9 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 5, scale: 0.9 }}
                 transition={{
@@ -92,8 +92,6 @@ const BubbleText = ({ text }: { text: string }) => {
     </div>
   );
 };
-
-export default BubbleDemo;
 
 ```
 </CollapsibleCodeBlock>

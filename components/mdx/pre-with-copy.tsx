@@ -54,8 +54,8 @@ const Pre: React.FC<PreProps> = ({ children, className, ...props }) => {
       </pre>
       <button
         onClick={copyToClipboard}
-        className="absolute right-5 top-4 p-2 rounded-full z-10
-         text-white  group-hover:text-white/80
+        className="absolute right-5 top-4 p-2 rounded-2xl z-10
+         text-lime-400 dark:text-indigo-400
          group-hover:bg-stone-800
           transition-colors duration-500 ease-in-out"
         aria-label="Copy code"

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <div className="max-w-2xl w-full h-full mx-auto space-y-8 py-24">
+      <div className="max-w-2xl w-full h-max mx-auto space-y-8 pt-16">
         <FadeText
           text="Connect with me ?"
           direction="left"

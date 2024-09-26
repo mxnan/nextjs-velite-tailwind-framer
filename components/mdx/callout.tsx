@@ -29,7 +29,7 @@ export function Callout({
         "my-10 cursor-pointer w-fit  pr-5 p-3 font-semibold text-lg flex items-start rounded-2xl border-border border-l-[5px] hover:border-r-[10px] border-b-[5px] hover:border-t-[10px] transition-all ease-in-out duration-300",
         {
           "text-white hover:text-gray-100 border-rose-300": type === "danger",
-          "text-gray-800 hover:text-gray-900 border-purple-400":
+          "text-gray-800 hover:text-gray-900 border-purple-500":
             type === "warning",
         }
       )}

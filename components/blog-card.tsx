@@ -70,7 +70,7 @@ export default function BlogCard({
               <dt className="sr-only">Published On</dt>
               <dd
                 className={cn(
-                  "flex items-start gap-2 text-sm font-medium text-primary/70",
+                  "flex items-start gap-2 text-sm font-semibold text-muted-foreground transition-colors duration-500 ease-in-out",
                   hoveredIndex === index && "text-primary"
                 )}
               >
@@ -81,9 +81,9 @@ export default function BlogCard({
             <p className="text-sm flex gap-2">
               <span
                 className={cn(
-                  "opacity-0 font-semibold text-green-600 transition-opacity duration-500 ease-in-out",
+                  "opacity-0 font-semibold text-indigo-600 dark:text-lime-400 transition-all duration-500 ease-in-out",
                   hoveredIndex === index && "opacity-100",
-                  status === "draft" && "text-red-600"
+                  status === "draft" && "text-red-500 dark:text-red-500"
                 )}
               >
                 {status}

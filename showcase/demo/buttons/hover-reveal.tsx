@@ -96,7 +96,7 @@ export default function GithubStarDemo() {
           <span className="relative px-2 py-1 flex items-center gap-2">
             <motion.span
               variants={bghoverVariant}
-              className="absolute z-10 rounded-lg inset-0 bg-sky-400/[0.9] dark:bg-emerald-600/[0.9]"
+              className="absolute z-10 rounded-lg inset-0 dark:bg-indigo-600 bg-lime-400"
             />
             <motion.span
               className="text-primary font-bold z-20"

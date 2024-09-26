@@ -103,12 +103,12 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
                   : "text-primary/50"
               )}
             >
-              <AnimatePresence>
+              <AnimatePresence mode="sync">
                 {item.url === `#${activeItem}` && (
                   <motion.span
                     key="activeItem"
                     layoutId="activeItem"
-                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-blue-500"
+                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-indigo-600 dark:bg-lime-400"
                     initial={{ opacity: 0.3 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0.3 }}
