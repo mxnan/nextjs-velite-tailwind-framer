@@ -1,4 +1,5 @@
-import { FadeText } from "@/components/mdx/fade-text";
+
+import { FadeText } from "@/showcase/_components/fade-text";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import React from "react";

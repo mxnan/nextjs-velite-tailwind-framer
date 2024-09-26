@@ -1,7 +1,8 @@
 import { blogs } from "#site/content";
-import { FadeText } from "@/components/mdx/fade-text";
+
 import BounceLoader from "@/components/ui/bounce-loader";
 import { sortBlogs } from "@/lib/utils";
+import { FadeText } from "@/showcase/_components/fade-text";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import React from "react";

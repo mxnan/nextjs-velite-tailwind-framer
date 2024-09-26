@@ -2,7 +2,7 @@ import * as runtime from "react/jsx-runtime";
 import { basecomponents } from "./base-mdx"; // import for base components
 //// some custom components
 import { Callout } from "./callout";
-import { FadeText } from "./fade-text";
+import { FadeText } from "../../showcase/_components/fade-text";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BounceLoader from "../ui/bounce-loader";
 import GithubStar from "@/showcase/demo/buttons/hover-reveal";

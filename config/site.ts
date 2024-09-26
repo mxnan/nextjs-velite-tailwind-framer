@@ -67,6 +67,10 @@ export const siteConfig = {
           name: "Bubble",
           href: "/components/text/bubble",
         },
+        {
+          name: "Fade",
+          href: "/components/text/fade",
+        },
       ],
     },
   ],

@@ -1,0 +1,127 @@
+---
+title: Fade Text
+description: Fade text animation , all directions 
+category: text
+tags: ["text", "fade"]
+---
+
+<FadeText
+  text="Fade"
+  direction="left"
+  framerProps={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 1, delay: 0.3, type: "spring" },
+    },
+  }}
+  className="scroll-m-10  tracking-tight
+        text-4xl  
+        drop-shadow-2xl font-semibold  "
+/>
+
+---
+
+<Tabs defaultValue="preview" className="my-6">
+<TabsList>
+<TabsTrigger value="preview">Preview</TabsTrigger>
+<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+<TabsContent value="preview">
+<ComponentPreview path="fade" category="text" usingCN usingFramer />
+</TabsContent>
+<TabsContent value="code">
+<CollapsibleCodeBlock>
+```tsx 
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { FadeText } from "@/showcase/_components/fade-text";
+import React from "react";
+
+export default function FadeTextDemo() {
+  return (
+    <div className="p-10 grid gap-6 grid-cols-1 md:grid-cols-2">
+      <FadeText
+        text="fade up"
+        direction="up"
+        framerProps={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              duration: 2,
+              delay: 0.5,
+              ease: "ease-in-out",
+              type: "spring",
+              stiffness: 150,
+              damping: 15,
+            },
+          },
+        }}
+        className={cn(buttonVariants({ variant: "default" }), "font-semibold")}
+      />
+      <FadeText
+        text="fade down"
+        direction="down"
+        framerProps={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              duration: 2,
+              delay: 0.5,
+              ease: "ease-in-out",
+              type: "spring",
+              stiffness: 150,
+              damping: 15,
+            },
+          },
+        }}
+        className={cn(buttonVariants({ variant: "default" }), "font-semibold")}
+      />
+      <FadeText
+        text="fade left"
+        direction="left"
+        framerProps={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              duration: 2,
+              delay: 0.5,
+              ease: "ease-in-out",
+              type: "spring",
+              stiffness: 150,
+              damping: 15,
+            },
+          },
+        }}
+        className={cn(buttonVariants({ variant: "default" }), "font-semibold")}
+      />
+      <FadeText
+        text="fade right"
+        direction="right"
+        framerProps={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              duration: 2,
+              delay: 0.5,
+              ease: "ease-in-out",
+              type: "spring",
+              stiffness: 150,
+              damping: 15,
+            },
+          },
+        }}
+        className={cn(buttonVariants({ variant: "default" }), "font-semibold")}
+      />
+    </div>
+  );
+}
+
+```
+</CollapsibleCodeBlock>
+</TabsContent>
+</Tabs>
