@@ -23,9 +23,8 @@ export async function GET(req: NextRequest) {
             width: "100%",
             alignItems: "center",
             justifyContent: "center",
-            letterSpacing: "-.02em",
-            fontWeight: 700,
-            background: "white",
+            background:
+              "radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(4,4,4,1) 23%, rgba(143,140,140,1) 100%)",
           }}
         >
           <div
@@ -37,26 +36,35 @@ export async function GET(req: NextRequest) {
               alignItems: "center",
             }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="36"
-              height="36"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
-              <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
-              <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
-            </svg>
-
             <span
               style={{
-                marginLeft: 8,
-                fontSize: 28,
+                borderRadius: "5px",
+                padding: "2px 2px ",
+                background: "white",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7c0788"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                width="24"
+                height="24"
+              >
+                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+                <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+                <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
+              </svg>
+            </span>
+            <span
+              style={{
+                marginLeft: 10,
+                fontSize: 24,
+                color: "#ebe8e8",
+                fontWeight: 700,
               }}
             >
               mxnan.com
@@ -64,92 +72,87 @@ export async function GET(req: NextRequest) {
           </div>
           <div
             style={{
-              left: 42,
-              bottom: 42,
-              position: "absolute",
               display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
+              padding: "40px",
+              width: "90%",
+              borderRadius: "20px",
+              textAlign: "center",
+              background:
+                "radial-gradient(circle, rgba(143,140,140,0.1) 0%, rgba(4,4,4,0.1) 77%, rgba(0,0,0,0.1) 100%)",
             }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="44"
-              height="44"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-              <path d="M9 18c-4.51 2-5-2-7-2" />
-            </svg>
-
-            <span
+            <h1
               style={{
-                marginLeft: 8,
-                fontSize: 28,
+                marginBottom: "10px",
+                lineHeight: 1.2,
+                fontWeight: 700,
+                fontSize: "70px",
+                color: "transparent",
+                position: "relative",
+                display: "block",
               }}
             >
-              @mxnan
-            </span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              padding: "20px 20px",
-              margin: "0px 200px 200px 0px",
-              fontSize: 54,
-              fontWeight: "900",
-              width: "auto",
-              maxWidth: 900,
-              textAlign: "center",
-              backgroundColor: "#14213d",
-              color: "white",
-              lineHeight: 1.4,
-              borderRadius: 30,
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="68"
-              height="68"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-             
+              <span
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "radial-gradient(circle, rgba(58,180,125,1) 0%, rgba(209,198,34,1) 50%, rgba(57,95,158,1) 100%)",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                {title}
+              </span>
+
+              {title}
+            </h1>
+            <h1
+              style={{
+                fontSize: "40px",
+                marginBottom: "20px",
+                lineHeight: 1.2,
+                fontWeight: 700,
+                color: "transparent",
+                position: "relative",
+                display: "block",
+              }}
             >
-              <path d="m6 17 5-5-5-5" />
-              <path d="m13 17 5-5-5-5" />
-            </svg>
-            {title}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              position: "absolute",
-              top: "55%",
-              flexWrap: "wrap",
-              padding: "20px 20px",
-              margin: "0px 0px 0px 0px",
-              fontSize: 36,
-              fontWeight: "700",
-              width: "auto",
-              maxWidth: 1000,
-              textAlign: "start",
-              backgroundColor: "#90e0ef",
-              color: "black",
-              lineHeight: 1.2,
-              borderRadius: 30,
-            }}
-          >
-            Easing dev experience
+              <span
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(209,34,34,1) 50%, rgba(158,116,57,1) 100%)",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                UI components. Simplified.{" "}
+              </span>
+              UI components. Simplified.
+            </h1>
+            <p
+              style={{
+                fontSize: "20px",
+                lineHeight: 1.6,
+                color: "white",
+                maxWidth: "80%",
+              }}
+            >
+              A website to show all my custom UI components, some blogs to share
+              my ideas and personal portfolio for showcasing and social contacts
+              . Request a component , if you need one ?
+            </p>
           </div>
         </div>
       ),
