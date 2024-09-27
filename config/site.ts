@@ -46,6 +46,23 @@ export const siteConfig = {
       ],
     },
     {
+      category: "Blocks",
+      items: [
+        {
+          name: "Image",
+          href: "/components/blocks/image",
+        },
+        {
+          name: "Text",
+          href: "/components/blocks/text",
+        },
+        {
+          name: "Video",
+          href: "/components/blocks/video",
+        },
+      ],
+    },
+    {
       category: "Buttons",
       items: [
         { name: "Hover-reveal", href: "/components/buttons/hover-reveal" },

@@ -97,11 +97,11 @@ const Footer: React.FC = () => {
             group-hover/footer:bg-secondary transition-colors duration-300 ease-in-out
             "
           >
-            Found a Bug ? <Icons.wrench className="w-4 h-4" /> Contribute ?
+            Found a Bug ? <Icons.wrench className="w-4 h-4 text-indigo-600 dark:text-lime-400" /> Contribute ?
           </a>
           <span className="text-muted-foreground font-semibold mt-4">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="mx-1 font-semibold text-blue-500">mxnan.com</span>{" "}
+            <span className="mx-1 font-semibold text-indigo-600 dark:text-lime-400">`mxnan.com`</span>{" "}
           </span>
           <span className="mt-2 "> All rights reserved.</span>
         </div>

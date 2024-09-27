@@ -4,6 +4,7 @@ import { MDXContent } from "@/components/mdx/mdx-components";
 import ProgressBar from "@/components/mdx/progress-bar";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { FadeText } from "@/showcase/_components/fade-text";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -96,6 +97,14 @@ export default async function BlogPage({ params }: BlogPageProps) {
           blog.status === "draft" && "opacity-30"
         )}
       >
+           <FadeText
+        text={blog.title}
+        direction="left"
+        className="scroll-m-10  tracking-tight
+        text-4xl w-max
+        drop-shadow-2xl font-semibold  "
+      />
+
         <MDXContent code={blog.content} />
       </div>
       {blog.toc && blog.toc.length > 0 && (

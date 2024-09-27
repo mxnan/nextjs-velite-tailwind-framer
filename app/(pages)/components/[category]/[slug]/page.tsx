@@ -3,7 +3,15 @@ import { Components, components } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
+const FadeText = dynamic(
+  () =>
+    import("@/showcase/_components/fade-text").then((mod) => mod.FadeText),
+  {
+    ssr: false,
+  }
+);
 interface ComponentSlugPageProps {
   params: {
     category: string;
@@ -88,8 +96,16 @@ export default async function ComponentSlugPage({
   }
 
   return (
-    <>
+    <section className="flex-1 relative">
+       <FadeText
+        text={component.title}
+        direction="left"
+        className="scroll-m-10  tracking-tight
+        text-4xl w-max
+        drop-shadow-2xl font-semibold"
+      />
+
       <MDXContent code={component.content} />
-    </>
+    </section>
   );
 }

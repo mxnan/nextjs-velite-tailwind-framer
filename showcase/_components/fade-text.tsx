@@ -16,7 +16,10 @@ export function FadeText({
   className,
   framerProps = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { type: "spring" } },
+    show: {
+      opacity: 1,
+      transition: { type: "tween", duration: 1.5, stiffness: 150, damping: 15 },
+    },
   },
   text,
 }: FadeTextProps) {
@@ -52,10 +55,17 @@ export function FadeText({
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
-      className="w-full"
+      className="relative inline-block w-full"
       variants={FADE_ANIMATION_VARIANTS}
     >
-      <motion.span className={cn("w-fit", className)}>{text}</motion.span>
+      <motion.span
+        className={cn(
+          "w-fit  drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-t from-gray-500 dark:from-stone-500 to-stone-950 dark:to-white",
+          className
+        )}
+      >
+        {text}
+      </motion.span>
     </motion.div>
   );
 }

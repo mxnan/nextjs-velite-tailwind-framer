@@ -80,7 +80,7 @@ export default function RootLayout({
           <Providers>
             <div className="relative container flex flex-col">
               <Header />
-              <main className="relative flex-1 min-h-screen w-full h-full py-10">{children}</main>
+              <main className="relative flex-1 min-h-[70vh] w-full h-full py-10">{children}</main>
             </div>
             <Footer />
             <Toaster />

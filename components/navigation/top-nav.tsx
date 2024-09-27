@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 import React, { useState } from "react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 import { buttonVariants } from "../ui/button";
 import { Icons } from "../icons";
 import ThemeToggle from "../theme-toggle";
-
 
 export default function TopNav() {
   return (
@@ -49,7 +48,7 @@ export default function TopNav() {
   );
 }
 
-const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
+function TopNavLinks({ index, link }: { index: number; link: any }) {
   const pathname = usePathname();
   // for hover effect
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -59,7 +58,7 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
       <div
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
-        className="relative block flex-1 px-3 pb-3 pt-4"
+        className="relative block flex-1 w-max px-3 pb-3 pt-4"
       >
         <AnimatePresence mode="wait">
           {hoveredIndex === index && (
@@ -101,4 +100,4 @@ const TopNavLinks = ({ index, link }: { index: number; link: any }) => {
       </div>
     </Link>
   );
-};
+}

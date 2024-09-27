@@ -1,5 +1,6 @@
 import { components, Components } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
+import { FadeText } from "@/showcase/_components/fade-text";
 import { Metadata } from "next";
 
 import React from "react";
@@ -53,7 +54,15 @@ export default async function IntroPage() {
 
   return (
     <section className="flex-1 relative">
-      <MDXContent code={components.content} /> 
+      <FadeText
+        text={components.title}
+        direction="left"
+        className="scroll-m-10  tracking-tight
+        text-4xl 
+        drop-shadow-2xl font-semibold  "
+      />
+
+      <MDXContent code={components.content} />
     </section>
   );
 }

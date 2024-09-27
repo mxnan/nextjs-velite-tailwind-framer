@@ -100,7 +100,7 @@ export function ComponentPreview({
         onClick={handleRefresh}
       >
         <Icons.refresh
-          className={cn("h-5 w-5 transition-all duration-500 ease-in-out group-hover/refresh:rotate-45")}
+          className={cn("h-5 w-5 stroke-[3px] text-lime-400 dark:text-indigo-600 transition-all duration-500 ease-in-out group-hover/refresh:rotate-45")}
         />
       </Button>
       <div className="flex-1 z-20 min-h-80 flex items-center justify-center">

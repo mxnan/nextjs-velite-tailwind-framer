@@ -33,23 +33,9 @@ export default async function BlogsPage() {
           <FadeText
             text="Blogs"
             direction="left"
-            framerProps={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  duration: 1,
-                  delay: 0.5,
-                  type: "spring",
-                  stiffness: 150,
-                  damping: 15,
-                },
-              },
-            }}
-            className="scroll-m-10 uppercase tracking-tight
+            className="scroll-m-10  tracking-tight
         text-[5rem]  xl:text-[6rem] md:leading-[7rem] 
-        drop-shadow-2xl font-semibold 
-        bg-clip-text text-transparent bg-gradient-to-r from-gray-500 dark:from-stone-500 to-stone-950 dark:to-white"
+        font-medium "
           />
 
           <p className=" ">

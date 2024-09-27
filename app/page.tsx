@@ -21,8 +21,10 @@ export default async function Home() {
   return (
     <>
       <HomePageHero />
-
-      <MDXContent code={components.content} />
+      <section className="max-w-screen-xl mx-auto">
+        <MDXContent code={components.content} />
+      </section>
+      
     </>
   );
 }

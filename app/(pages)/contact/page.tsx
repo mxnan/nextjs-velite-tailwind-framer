@@ -1,4 +1,3 @@
-
 import { FadeText } from "@/showcase/_components/fade-text";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -22,23 +21,9 @@ export default function ContactPage() {
         <FadeText
           text="Connect with me ?"
           direction="left"
-          framerProps={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: {
-                duration: 1,
-                delay: 0.5,
-                type: "spring",
-                stiffness: 150,
-                damping: 15,
-              },
-            },
-          }}
-          className="scroll-m-10 uppercase tracking-tight
-          text-4xl md:text-5xl lg:text-6xl
-          drop-shadow-2xl font-bold 
-          bg-clip-text text-transparent bg-gradient-to-r from-gray-500 dark:from-stone-500 to-stone-950 dark:to-white"
+          className="scroll-m-10  tracking-tight
+          text-4xl md:text-5xl lg:text-6xl font-semibold
+         "
         />
         <p className="font-medium max-md:text-sm md:ml-6">
           Looking for new opportunities. Let&apos;s get in touch.
