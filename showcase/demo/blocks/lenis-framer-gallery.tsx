@@ -1,0 +1,113 @@
+import Image from "next/image";
+import React, { useRef } from "react";
+import { motion, useTransform, useScroll, MotionValue } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { DirectionAwareHover } from "@/showcase/_components/direction-aware-hover";
+import { Plane } from "lucide-react";
+
+const images = [
+  "https://images.unsplash.com/photo-1727461144658-b4baf3b591bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727402881307-9b2d1cd53ca5?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727383694734-0f2353847cc4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
+  "https://images.unsplash.com/photo-1727513031846-4e0e097d650b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8",
+  "https://images.unsplash.com/photo-1727029223470-ff234a7394f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1725489891146-490f7962e499?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727626270449-5e4065c4609f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0OHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727355933101-0e32f39f0b60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2MXx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727460198311-b30af35bceb2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw3MXx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1726148552362-c9e0025d25e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4Mnx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727089787039-4bcec5544ee2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw5MXx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1727409491394-7e90350a5ff9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMDh8fHxlbnwwfHx8fHw%3D",
+];
+export default function ImageGalleryDemo() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+    layoutEffect: true,
+  });
+
+  const yMiddle = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5, 0.75, 1],
+    [0, 100, -200, -200, -300]
+  );
+  const yOdd = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5, 0.75, 1],
+    [0, 200, 0, -300, -500]
+  );
+
+
+  return (
+    <section className="max-w-screen-2xl mx-auto w-full ">
+      <div className="h-[60vh] w-full"></div>
+      <div
+        ref={container}
+        className="h-[150vh] overflow-hidden w-full rounded-xl  flex flex-row gap-2 p-2 box-border"
+      >
+        <Column
+          className=""
+          images={[images[0], images[1], images[2], images[3]]}
+          y={yOdd}
+      
+        />
+        <Column
+          className="hidden md:flex"
+          images={[images[4], images[5], images[6], images[7]]}
+          y={yMiddle}
+         
+        />
+        <Column
+          className="hidden 2xl:flex"
+          images={[images[8], images[9], images[10], images[11]]}
+          y={yOdd}
+         
+        />
+      </div>
+      <div className="h-[60vh] w-full"></div>
+    </section>
+  );
+}
+
+const Column = ({
+  images,
+  className,
+  y = 0,
+  scale = 1,
+  fade = 1,
+}: {
+  images: string[];
+  className?: string;
+  y?: MotionValue<number> | number;
+  scale?: MotionValue<number> | number;
+  fade?: MotionValue<number> | number;
+}) => {
+  return (
+    <motion.div
+      style={{ y }}
+      className={cn("w-full flex flex-col gap-2", className)}
+    >
+      {images.map((src, index) => {
+        return (
+          <motion.div
+            key={index}
+            className="w-full relative rounded-xl overflow-hidden border-2"
+            style={{ scale, opacity: fade }}
+          >
+            <DirectionAwareHover
+              imageUrl={src}
+              className="relative w-full h-full"
+            >
+              <Button className="flex gap-2">
+                {" "}
+                Visit ? <Plane className="w-4 h-4" />
+              </Button>
+            </DirectionAwareHover>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  );
+};

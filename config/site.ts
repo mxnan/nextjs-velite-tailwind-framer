@@ -49,17 +49,10 @@ export const siteConfig = {
       category: "Blocks",
       items: [
         {
-          name: "Image",
-          href: "/components/blocks/image",
+          name: "Gallery",
+          href: "/components/blocks/gallery",
         },
-        {
-          name: "Text",
-          href: "/components/blocks/text",
-        },
-        {
-          name: "Video",
-          href: "/components/blocks/video",
-        },
+      
       ],
     },
     {
