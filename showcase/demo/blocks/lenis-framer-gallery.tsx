@@ -1,10 +1,13 @@
-import Image from "next/image";
+"use client";
 import React, { useRef } from "react";
 import { motion, useTransform, useScroll, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ReactLenis } from "lenis/react";
 import { Button } from "@/components/ui/button";
 import { DirectionAwareHover } from "@/showcase/_components/direction-aware-hover";
 import { Plane } from "lucide-react";
+import useDimension from "@/hooks/use-dimension";
+import TextRevealByWord from "@/showcase/_components/text-reveal-by-word";
 
 const images = [
   "https://images.unsplash.com/photo-1727461144658-b4baf3b591bf?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -21,52 +24,58 @@ const images = [
   "https://images.unsplash.com/photo-1727409491394-7e90350a5ff9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMDh8fHxlbnwwfHx8fHw%3D",
 ];
 export default function ImageGalleryDemo() {
-  const container = useRef(null);
+  const containerRef = useRef<null | HTMLDivElement>(null);
+  const scrollRef = useRef(null);
+  const { height } = useDimension();
   const { scrollYProgress } = useScroll({
-    target: container,
+    target: scrollRef,
     offset: ["start end", "end start"],
-    layoutEffect: true,
   });
 
   const yMiddle = useTransform(
     scrollYProgress,
     [0, 0.25, 0.5, 0.75, 1],
-    [0, 100, -200, -200, -300]
+    [0, -200, height - 600, height - 600, height - 200]
   );
   const yOdd = useTransform(
     scrollYProgress,
     [0, 0.25, 0.5, 0.75, 1],
-    [0, 200, 0, -300, -500]
+    [0, -100, -300, height - 600, height / 2]
   );
-
+  function easeInOutSine(x: number): number {
+    return -(Math.cos(Math.PI * x) - 1) / 2;
+  }
 
   return (
-    <section className="max-w-screen-2xl mx-auto w-full ">
-      <div className="h-[60vh] w-full"></div>
-      <div
-        ref={container}
-        className="h-[150vh] overflow-hidden w-full rounded-xl  flex flex-row gap-2 p-2 box-border"
+    <section
+      ref={containerRef}
+      className="max-w-screen-2xl mx-auto w-full relative"
+    >
+      <ReactLenis
+        root
+        options={{ lerp: 0.05, easing: easeInOutSine, smoothWheel: true }}
       >
-        <Column
-          className=""
-          images={[images[0], images[1], images[2], images[3]]}
-          y={yOdd}
-      
-        />
-        <Column
-          className="hidden md:flex"
-          images={[images[4], images[5], images[6], images[7]]}
-          y={yMiddle}
-         
-        />
-        <Column
-          className="hidden 2xl:flex"
-          images={[images[8], images[9], images[10], images[11]]}
-          y={yOdd}
-         
-        />
-      </div>
-      <div className="h-[60vh] w-full"></div>
+        <div ref={scrollRef} className="relative">
+          <TextRevealByWord
+            className="h-[150vh]"
+            text="Scroll down for image gallery"
+          />
+          <div className="h-[180vh] relative overflow-hidden w-full rounded-xl flex flex-row gap-2 p-2 box-border">
+            <Column images={[images[0], images[1], images[2]]} y={yOdd} />
+            <Column
+              className="hidden md:block "
+              images={[images[4], images[5]]}
+              y={yMiddle}
+            />
+            <Column
+              className="hidden 2xl:flex"
+              images={[images[8], images[9], images[10]]}
+              y={yOdd}
+            />
+          </div>
+          <TextRevealByWord className="h-[120vh]" text="Scroll back up " />
+        </div>
+      </ReactLenis>
     </section>
   );
 }
