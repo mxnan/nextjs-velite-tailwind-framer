@@ -42,9 +42,9 @@ export default function ResponsiveSidebar() {
          className={cn(
           "fixed z-30 top-40 overflow-y-auto scrollbar-hide",
           isMobile
-            ? "w-64 p-4 left-2 bg-gray-200/90 dark:bg-gray-800/90 text-secondary rounded-2xl shadow-xl border-2 border-gray-500"
+            ? "w-64 h-[calc(100vh-45vh)] p-4 left-2 bg-gray-200/90 dark:bg-gray-800/90 text-secondary rounded-2xl shadow-xl border-2 border-gray-500"
             : "w-56 bg-transparent py-2 border-0 shadow-none flex-1 left-[calc(50%-47rem)] 2xl:left-[calc(50%-50rem)]",
-          "h-[calc(100vh-45vh)]" // Fixed height for sidebar
+          "" // Fixed height for sidebar
         )}
         initial={isMobile ? "closed" : "open"}
         animate={isMobile ? (isOpen ? "open" : "closed") : "open"}
