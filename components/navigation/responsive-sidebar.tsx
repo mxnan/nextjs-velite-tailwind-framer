@@ -39,12 +39,12 @@ export default function ResponsiveSidebar() {
         />
       )}
       <motion.div
-         className={cn(
+        className={cn(
           "fixed z-30 top-40 overflow-y-auto scrollbar-hide",
           isMobile
             ? "w-64 h-[calc(100vh-45vh)] p-4 left-2 bg-gray-200/90 dark:bg-gray-800/90 text-secondary rounded-2xl shadow-xl border-2 border-gray-500"
-            : "w-56 bg-transparent py-2 border-0 shadow-none flex-1 left-[calc(50%-47rem)] 2xl:left-[calc(50%-50rem)]",
-          "" // Fixed height for sidebar
+            : "w-56 bg-transparent py-2 border-0 shadow-none flex-1 left-[calc(50%-47rem)] 2xl:left-[calc(50%-50rem)]"
+          // Fixed height for sidebar
         )}
         initial={isMobile ? "closed" : "open"}
         animate={isMobile ? (isOpen ? "open" : "closed") : "open"}
@@ -56,7 +56,7 @@ export default function ResponsiveSidebar() {
           stiffness: 100,
         }}
       >
-        <nav className={cn("flex flex-col gap-4 h-auto", isMobile && "pr-2 ")}>
+        <nav className={cn("flex flex-col gap-4 h-auto ", isMobile && "pr-2 ")}>
           {isMobile && <ProgressY />}
 
           {siteConfig.componentSidebar.map((category) => (
@@ -174,7 +174,9 @@ const ProgressY = () => {
   const repeatedText = scrollText.repeat(15);
 
   return (
-    <div className="absolute left-1 w-4 h-[50vh] overflow-hidden"> {/* Fixed height for ProgressY */}
+    <div className="absolute left-1 -top-2 w-4 h-[60vh]  overflow-hidden">
+      {" "}
+      {/* Fixed height for ProgressY */}
       <motion.div
         className="flex flex-col items-center justify-start"
         initial={{ y: "0%" }}
