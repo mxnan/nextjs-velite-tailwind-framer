@@ -42,7 +42,7 @@ export default function ResponsiveSidebar() {
         className={cn(
           "fixed z-30 top-40 overflow-y-auto scrollbar-hide",
           isMobile
-            ? "w-64 h-[calc(100vh-45vh)] p-4 left-2 bg-gray-200/90 dark:bg-gray-800/90 text-secondary rounded-2xl shadow-xl border-2 border-gray-500"
+            ? "w-64 h-[calc(100vh-45vh)] p-4 left-2 bg-white/90 dark:bg-black/90 text-secondary rounded-2xl shadow-xl border-2 border-gray-500"
             : "w-56 bg-transparent py-2 border-0 shadow-none flex-1 left-[calc(50%-47rem)] 2xl:left-[calc(50%-50rem)]"
           // Fixed height for sidebar
         )}
@@ -57,7 +57,7 @@ export default function ResponsiveSidebar() {
         }}
       >
         <nav className={cn("flex flex-col gap-4 h-auto ", isMobile && "pr-2 ")}>
-          {isMobile && <ProgressY />}
+        
 
           {siteConfig.componentSidebar.map((category) => (
             <div
@@ -168,37 +168,3 @@ const OpenCloseButton = ({
     </Button>
   </motion.div>
 );
-
-const ProgressY = () => {
-  const scrollText = "--SCROLL--";
-  const repeatedText = scrollText.repeat(15);
-
-  return (
-    <div className="absolute left-1 -top-2 w-4 h-[60vh]  overflow-hidden">
-      {" "}
-      {/* Fixed height for ProgressY */}
-      <motion.div
-        className="flex flex-col items-center justify-start"
-        initial={{ y: "0%" }}
-        animate={{ y: `-${100 / 6}%` }}
-        transition={{
-          y: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 15,
-            ease: "linear",
-          },
-        }}
-      >
-        {repeatedText.split("").map((char, index) => (
-          <span
-            key={index}
-            className="text-xs font-bold text-indigo-600 dark:text-lime-400 my-1"
-          >
-            {char}
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
