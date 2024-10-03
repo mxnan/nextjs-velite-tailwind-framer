@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -60,7 +59,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -75,13 +73,13 @@
 
 /****************************VIEW TRANSITIONS************************************/
 
-/* For View transition when page is changed and theme is toggled , using in links of navigation folder*/
+/* For View transition when page is changed and theme is toggled , using in theme-toggle and for root and all transitions*/
 /* For browsers that don't support View Transitions */
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 /* For browsers that support View Transitions */
-@keyframes move-out-bottom {
+@keyframes opacity-out {
   0% {
     opacity: 1;
   }
@@ -99,7 +97,7 @@
   }
 }
 
-@keyframes move-in-top {
+@keyframes opacity-in {
   0% {
     opacity: 0;
   }
@@ -118,22 +116,52 @@
 }
 
 ::view-transition-old(root) {
-  animation: 0.4s ease-out both move-out-bottom;
+  animation: 0.4s ease-out both opacity-out;
 }
 
 ::view-transition-new(root) {
-  animation: 0.4s ease-in both move-in-top;
+  animation: 0.4s ease-in both opacity-in;
+}
+
+@keyframes move-down-and-scale {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes move-up-and-scale {
+  0% {
+    transform: translateY(10px) scaleX(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
+  }
+}
+
+::view-transition-old(underline) {
+  animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both move-down-and-scale;
+}
+
+::view-transition-new(underline) {
+  animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both move-up-and-scale;
 }
 /*************************************************************/
 
 /*************************SCROLLBAR CLASSES************************************/
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none; /* Chrome, Safari and Opera */
 }
 /* scrollbar track as class for codeblock */
 .scrollbartrack::-webkit-scrollbar-track {

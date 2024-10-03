@@ -33,7 +33,7 @@ export default async function BlogsPage() {
           <FadeText
             text="Blogs"
             direction="left"
-            className="scroll-m-10  tracking-tight
+            className="  scroll-m-10  tracking-tight
         text-[5rem]  xl:text-[6rem] md:leading-[7rem] 
         font-medium "
           />

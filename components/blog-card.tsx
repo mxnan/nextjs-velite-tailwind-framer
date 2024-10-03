@@ -1,9 +1,10 @@
 "use client";
 import { cn, formatDate } from "@/lib/utils";
-import Link from "next/link";
+
 import { Icons } from "./icons";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "next-view-transitions";
 
 interface BlogCardProps {
   slug: string;
@@ -64,7 +65,7 @@ export default function BlogCard({
       </AnimatePresence>
       <div className="p-3 lg:p-5 w-full h-full space-y-5">
         <div className="w-full space-y-3">
-          <h1 className="text-3xl font-semibold my-2">{title}</h1>
+          <h1 className="text-3xl font-semibold my-2" >{title}</h1>
           <div className="flex flex-wrap my-2">
             <dl className="flex-1">
               <dt className="sr-only">Published On</dt>

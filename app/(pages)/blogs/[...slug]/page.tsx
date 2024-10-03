@@ -81,6 +81,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
       <ProgressBar />
       <div className="hidden xl:block fixed top-44 right-[calc(50%+33rem)]">
         <Link
+          prefetch={true}
           href="/blogs"
           className={cn(
             buttonVariants({ variant: "default" }),
@@ -97,13 +98,13 @@ export default async function BlogPage({ params }: BlogPageProps) {
           blog.status === "draft" && "opacity-30"
         )}
       >
-           <FadeText
-        text={blog.title}
-        direction="left"
-        className="scroll-m-10  tracking-tight
+        <FadeText
+          text={blog.title}
+          direction="left"
+          className="scroll-m-10  tracking-tight
         text-4xl w-max
         drop-shadow-2xl font-semibold  "
-      />
+        />
 
         <MDXContent code={blog.content} />
       </div>
