@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { components, Components } from "#site/content";
 import { MDXContent } from "@/components/mdx/mdx-components";
-import HomePageHero from "@/components/home-page-hero";
 
 async function getComponents(slug: string): Promise<Components | undefined> {
   return components.find((components) => components.slug === slug);
@@ -20,7 +19,7 @@ export default async function Home() {
 
   return (
     <>
-      <HomePageHero />
+      
       <section className="w-full relative">
         <MDXContent code={components.content} />
       </section>

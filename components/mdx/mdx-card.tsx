@@ -14,10 +14,13 @@ export function MdxCard({
   children,
   ...props
 }: CardProps) {
+  // Check if the href is external by looking for http(s):// or starting with //
+  const isExternalLink = href?.match(/^(https?:)?\/\//);
+
   return (
     <div
       className={cn(
-        "group relative rounded-lg border shadow-md transition-all  hover:translate-y-1 hover:shadow-xl duration-300 ease-in-out",
+        "group relative rounded-lg border shadow-md transition-all hover:translate-y-1 hover:shadow-xl duration-300 ease-in-out",
         className
       )}
       {...props}
@@ -28,9 +31,20 @@ export function MdxCard({
         </div>
       </div>
       {href && (
-        <Link href={href} className="absolute inset-0">
-          <span className="sr-only">View</span>
-        </Link>
+        isExternalLink ? (
+          <a 
+            href={href} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="absolute inset-0"
+          >
+            <span className="sr-only">View (opens in new tab)</span>
+          </a>
+        ) : (
+          <Link href={href} className="absolute inset-0">
+            <span className="sr-only">View</span>
+          </Link>
+        )
       )}
     </div>
   );

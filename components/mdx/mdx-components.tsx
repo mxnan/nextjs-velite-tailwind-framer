@@ -9,6 +9,7 @@ import GithubStar from "@/showcase/demo/buttons/hover-reveal";
 ////////////////////////////////
 //// using dynamic imports here
 import dynamic from "next/dynamic";
+import VideoFromSrc from "./video-from-src";
 
 const MdxCard = dynamic(() => import("./mdx-card").then((mod) => mod.MdxCard), {
   ssr: false,
@@ -36,6 +37,12 @@ const ComponentPreview = dynamic(
     ),
   }
 );
+const MarqueeEffect = dynamic(
+  () => import("../../showcase/_components/marquee-effect"),
+  {
+    ssr: false,
+  }
+);
 
 ////////////////////////////////
 const sharedComponents = {
@@ -44,6 +51,7 @@ const sharedComponents = {
   // Add your custom components here
   Callout,
   GithubStar,
+  VideoFromSrc,
   Tabs,
   TabsContent,
   TabsList,
@@ -51,6 +59,7 @@ const sharedComponents = {
   ComponentPreview,
   CollapsibleCodeBlock,
   MdxCard,
+  MarqueeEffect,
 };
 
 // parse the Velite generated MDX code into a React component function
