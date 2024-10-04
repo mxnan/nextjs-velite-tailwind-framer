@@ -74,10 +74,7 @@
 /****************************VIEW TRANSITIONS************************************/
 
 /* For View transition when page is changed and theme is toggled , using in theme-toggle and for root and all transitions*/
-/* For browsers that don't support View Transitions */
-.theme-transition {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+
 /* For browsers that support View Transitions */
 @keyframes opacity-out {
   0% {
@@ -122,6 +119,8 @@
 ::view-transition-new(root) {
   animation: 0.4s ease-in both opacity-in;
 }
+
+/***************************  UNDERLINE ANIMATIONS**************************************/
 
 @keyframes move-down-and-scale {
   0% {

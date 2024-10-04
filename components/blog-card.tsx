@@ -65,7 +65,7 @@ export default function BlogCard({
       </AnimatePresence>
       <div className="p-3 lg:p-5 w-full h-full space-y-5">
         <div className="w-full space-y-3">
-          <h1 className="text-3xl font-semibold my-2" >{title}</h1>
+          <h1 className="text-3xl font-semibold my-2">{title}</h1>
           <div className="flex flex-wrap my-2">
             <dl className="flex-1">
               <dt className="sr-only">Published On</dt>
@@ -82,7 +82,7 @@ export default function BlogCard({
             <p className="text-sm flex gap-2">
               <span
                 className={cn(
-                  "opacity-0 font-semibold text-indigo-600 dark:text-lime-400 transition-all duration-500 ease-in-out",
+                  "opacity-0 max-md:opacity-100 font-semibold text-indigo-600 dark:text-lime-400 transition-all duration-500 ease-in-out",
                   hoveredIndex === index && "opacity-100",
                   status === "draft" && "text-red-500 dark:text-red-500"
                 )}

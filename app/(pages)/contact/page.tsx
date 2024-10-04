@@ -36,7 +36,7 @@ export default async function ContactPage() {
           text-4xl md:text-5xl lg:text-6xl font-semibold
          "
           />
-          <p className="font-medium max-md:text-sm md:ml-6">
+          <p className="[view-transition-name:text2] font-medium max-md:text-sm md:ml-6">
             Looking for new opportunities. Let&apos;s get in touch.
           </p>
           <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />

@@ -54,10 +54,7 @@ function NavLinks({ link }: { link: any }) {
       <div className={cn("relative block flex-1 w-max px-1 pb-3 pt-4 group")}>
         <span className="relative z-10 font-semibold"> {link.label}</span>
         {pathname === link.href && (
-          <span
-            style={{ viewTransitionName: "underline" }}
-            className="absolute bottom-2 left-0 h-1 w-full block rounded-full bg-gray-500"
-          />
+          <span className="[view-transition-name:underline] absolute bottom-2 left-0 h-1 w-full block rounded-full bg-gray-500" />
         )}
         {/* Add hover effect indicator */}
         <span className="absolute bottom-2 left-0 h-1 w-full block rounded-full bg-gray-400 dark:bg-gray-600 opacity-0 transform scale-x-0 transition-all duration-200 group-hover:opacity-25 group-hover:scale-x-100" />

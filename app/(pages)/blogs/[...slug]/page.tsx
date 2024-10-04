@@ -3,7 +3,7 @@ import { Icons } from "@/components/icons";
 import { MDXContent } from "@/components/mdx/mdx-components";
 import ProgressBar from "@/components/mdx/progress-bar";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { FadeText } from "@/showcase/_components/fade-text";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
@@ -79,17 +79,20 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <section className="relative w-full">
       <ProgressBar />
-      <div className="hidden xl:block fixed top-44 right-[calc(50%+33rem)]">
+      <div className=" xl:block xl:fixed top-44 right-[calc(50%+33rem)]">
         <Link
           prefetch={true}
           href="/blogs"
           className={cn(
             buttonVariants({ variant: "default" }),
-            "group font-semibold"
+            "group font-semibold "
           )}
         >
-          <Icons.upleft className="mr-2 h-5 w-5 group-hover:-rotate-12 transition-all duration-300 ease-in-out" />
-          All Blogs ?
+          <Icons.upleft className=" mr-2 h-5 w-5 group-hover:-rotate-12 transition-all duration-300 ease-in-out" />
+          All{" "}
+          <span className=" ml-1" >
+            Blogs
+          </span>
         </Link>
       </div>
       <div
@@ -101,11 +104,35 @@ export default async function BlogPage({ params }: BlogPageProps) {
         <FadeText
           text={blog.title}
           direction="left"
-          className="scroll-m-10  tracking-tight
+          className=" scroll-m-10  tracking-tight
         text-4xl w-max
         drop-shadow-2xl font-semibold  "
         />
 
+        <div className="[view-transition-name:text2] py-3 flex items-center gap-4">
+          <dl className="flex">
+            <dt className="sr-only">Published On</dt>
+            <dd
+              className={cn(
+                "flex items-start gap-2 text-sm font-semibold text-muted-foreground transition-colors duration-500 ease-in-out"
+              )}
+            >
+              <Icons.calenderClock className="w-4 h-4" />
+              <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+            </dd>
+          </dl>
+          <p className="text-sm flex gap-2">
+            <span
+              className={cn(
+                " font-semibold text-indigo-600 dark:text-lime-400 transition-all duration-500 ease-in-out",
+                blog.status === "draft" && "text-red-500"
+              )}
+            >
+              {blog.status}
+            </span>{" "}
+            <Icons.squarePen className="w-4 h-4" />
+          </p>{" "}
+        </div>
         <MDXContent code={blog.content} />
       </div>
       {blog.toc && blog.toc.length > 0 && (

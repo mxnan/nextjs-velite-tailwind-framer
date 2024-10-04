@@ -1,4 +1,5 @@
 import { blogs } from "#site/content";
+import { Icons } from "@/components/icons";
 
 import BounceLoader from "@/components/ui/bounce-loader";
 import { sortBlogs } from "@/lib/utils";
@@ -33,13 +34,14 @@ export default async function BlogsPage() {
           <FadeText
             text="Blogs"
             direction="left"
-            className="  scroll-m-10  tracking-tight
+            className="scroll-m-10  tracking-tight
         text-[5rem]  xl:text-[6rem] md:leading-[7rem] 
-        font-medium "
+        font-semibold "
           />
 
-          <p className=" ">
-            Just some blogs to showcase learnings and findings
+          <p className="[view-transition-name:text2] flex">
+            Just some blogs to showcase learnings and findings 
+            <Icons.chevronDown className="w-6 h-6" />
           </p>
         </div>
         {displayBlogs?.length > 0 && (

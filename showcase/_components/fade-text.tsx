@@ -55,12 +55,12 @@ export function FadeText({
       initial="hidden"
       animate="show"
       viewport={{ once: true }}
-      className="relative inline-block w-full"
+      className="relative inline-block w-full [view-transition-name:text]"
       variants={FADE_ANIMATION_VARIANTS}
     >
       <motion.span
         className={cn(
-          "w-fit  drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-t from-gray-500 dark:from-stone-500 to-stone-950 dark:to-white",
+          "w-fit    drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-t from-gray-500 dark:from-stone-500 to-stone-950 dark:to-white",
           className
         )}
       >
