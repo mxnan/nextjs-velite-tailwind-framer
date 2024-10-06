@@ -52,7 +52,10 @@ export const siteConfig = {
           name: "Gallery",
           href: "/components/blocks/gallery",
         },
-      
+        {
+          name: "Pixel",
+          href: "/components/blocks/pixel",
+        }
       ],
     },
     {
