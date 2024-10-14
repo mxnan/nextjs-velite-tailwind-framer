@@ -7,7 +7,9 @@ tags: ["blocks", "accordion"]
 
 ---
  
-
+- fully responsive , auto width for diff screens .
+- content is react component, `use anything like a whole form or image/video` .
+- `thought of adding bento grid in here` .
 
 <Tabs defaultValue="preview" className="my-6">
 <TabsList>
@@ -20,9 +22,249 @@ tags: ["blocks", "accordion"]
 <TabsContent value="code">
 <CollapsibleCodeBlock>
 ```tsx
+"use client";
+import { FormSection } from "@/components/form-section";
+import { Button } from "@/components/ui/button";
+import Accordion from "@/showcase/_components/accordion-primitive";
+import ImageinView from "@/showcase/_components/image-in-view";
+import { BookAudio, LeafyGreen } from "lucide-react";
+import Image from "next/image";
+import React from "react";
+type AccordionItem = {
+  title: string;
+  content: () => React.ReactNode;
+};
+const accordionItems: AccordionItem[] = [
+  {
+    title: "Explore Knowledge",
+    content: () => (
+      <div className="flex items-center gap-8 flex-inline">
+        <div className="relative hidden sm:block sm:w-48 lg:w-72 h-40 overflow-hidden rounded-xl border">
+          <Image
+            src={
+              "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2128&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+            alt="example"
+            fill
+            className="object-cover w-full h-full aspect-video"
+          />
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-row flex-inline">
+            <BookAudio className="h-7 w-7 mr-2" />
+            <p className="text-sm font-medium">
+              Discover new worlds of information with our interactive learning
+              platform.
+            </p>
+          </div>
+          <Button className="w-max">Track Here ?</Button>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Innovative Learning",
+    content: () => (
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-row flex-inline">
+          <LeafyGreen className="h-5 w-5 mr-2" />
+          <p className="text-sm font-medium">
+            Experience cutting-edge educational techniques that adapt to your
+            unique learning style.
+          </p>
+        </div>
+        <Button className="w-max">Learn more ?</Button>
+      </div>
+    ),
+  },
+
+  {
+    title: "Global Community",
+    content: () => (
+      <div className="flex flex-row flex-inline">
+        {/* using form section as a placeholder */}
+        <FormSection />
+      </div>
+    ),
+  },
+  {
+    title: "Personalized Growth",
+    content: () => (
+      <div className="flex items-center gap-8 flex-inline">
+        <div className="relative hidden sm:block sm:w-48 lg:w-72 h-40 overflow-hidden rounded-xl border">
+          <Image
+            src={
+              "https://images.unsplash.com/photo-1523798506119-1caac6f7e8d6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+            alt="example"
+            fill
+            className="object-cover w-full h-full aspect-video"
+          />
+        </div>
+        <div className="flex flex-col gap-6">
+          <p className="text-sm font-medium">
+            Track your progress and receive tailored recommendations to
+            accelerate your learning journey.
+          </p>
+          <Button className="w-max">Track Here ?</Button>
+        </div>
+      </div>
+    ),
+  },
+];
+export default function AccordionDemo() {
+  return (
+    <div className="flex-1 w-full overflow-hidden rounded-2xl py-10">
+      <div className="relative p-8 ">
+        <div className="max-w-6xl mx-auto  flex flex-col md:flex-row-reverse justify-start md:justify-center items-start md:items-center gap-10">
+        {/* ImageinView custom component, you can use any text, video , image or totally remove it  */}  
+        <ImageinView /> <Accordion items={accordionItems} />
+        </div>
+        <div
+          className="absolute top-1/2 right-0 z-0 dark:bg-indigo-600/30 bg-lime-400/30 w-3/5 
+            translate-x-1/2 h-full -translate-y-1/2 blur-[10rem]"
+        />
+        <div
+          className="absolute top-1/2 left-0 z-0 dark:bg-indigo-600/30 bg-lime-400/30 w-1/5 
+            -translate-x-1/2 h-full -translate-y-1/2 blur-[10rem]"
+        />
+      </div>
+    </div>
+  );
+}
 
 ```
 </CollapsibleCodeBlock>
 </TabsContent>
 </Tabs>
+
+---
+
+<p className="text-2xl font-bold">Installation</p>
+
+<Steps>
+  <Step>
+      **Copy accordion-primitives.tsx**
+       
+      
+<CollapsibleCodeBlock>
+```tsx
+"use client";
+import { cn } from "@/lib/utils";
+import { Variants, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { useState, useCallback, memo, ReactNode } from "react";
+type AccordionItemType = {
+  title: string;
+  content: () => ReactNode; 
+};
+interface AccordionItemProps extends AccordionItemType {
+  isExpanded: boolean;
+  onToggle: () => void;
+  className?: string;
+}
+interface AccordionProps {
+  items: AccordionItemType[];
+}
+const cardVariants: Variants = {
+  collapsed: {
+    height: "60px",
+    width: "300px",
+    transition: { type: "tween", stiffness: 200, damping: 30 },
+  },
+  expanded: {
+    height: "auto",
+    width: "auto",
+    transition: { type: "tween", stiffness: 200, damping: 30 },
+  },
+};
+const contentVariants: Variants = {
+  collapsed: { opacity: 0, x: -30 },
+  expanded: {
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.3, type: "tween", stiffness: 200, damping: 30 },
+  },
+};
+const chevronVariants: Variants = {
+  collapsed: { rotate: 0 },
+  expanded: { rotate: 180, transition: { delay: 0.3 } },
+};
+const AccordionItem = memo<AccordionItemProps>(
+  ({ title, content, isExpanded, className, onToggle }) => {
+    return (
+      <motion.div
+        className={cn(
+          "mb-2 w-fit h-full overflow-hidden",
+          className,
+
+          isExpanded
+            ? "border-l-4 rounded-none border-indigo-700 dark:border-lime-400"
+            : "border rounded-xl dark:border-zinc-700"
+        )}
+        variants={cardVariants}
+        initial="collapsed"
+        animate={isExpanded ? "expanded" : "collapsed"}
+      >
+        <div
+          onClick={onToggle}
+          className={cn(
+            "cursor-pointer flex items-center justify-between p-4",
+            isExpanded ? "" : ""
+          )}
+        >
+          <span className=" m-0  font-semibold text-stone-500 dark:text-stone-400">
+            {title}
+          </span>
+          <motion.div className="ml-4" variants={chevronVariants}>
+            <ChevronDown
+              className="h-4 w-4 stroke-[3px] text-indigo-700 dark:text-lime-400"
+              size={18}
+            />
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="px-4 py-3"
+          variants={contentVariants}
+          initial="collapsed"
+          animate={isExpanded ? "expanded" : "collapsed"}
+        >
+          {content()} {/* Call the content function here */}
+        </motion.div>
+      </motion.div>
+    );
+  }
+);
+AccordionItem.displayName = "AccordionItem";
+const Accordion: React.FC<AccordionProps> = ({ items }) => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const handleToggle = useCallback((index: number) => {
+    setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
+  }, []);
+  return (
+    <div className="z-10 flex flex-col items-start justify-start">
+      {items.map((item, index) => (
+        <AccordionItem
+          key={index}
+          {...item}
+          className="max-w-2xl"
+          isExpanded={expandedIndex === index}
+          onToggle={() => handleToggle(index)}
+        />
+      ))}
+    </div>
+  );
+};
+export default Accordion;
+
+```
+</CollapsibleCodeBlock>
+  </Step>
+  <Step>
+   **Use accordion as above example in your app .**
+
+  </Step>
+</Steps>
+
 

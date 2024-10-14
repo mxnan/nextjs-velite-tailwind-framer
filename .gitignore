@@ -37,3 +37,6 @@ next-env.d.ts
 
 # velite files
 .velite
+
+# public/slant-it folder
+public/slant-it

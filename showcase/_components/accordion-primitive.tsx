@@ -1,27 +1,20 @@
 "use client";
-
 import { cn } from "@/lib/utils";
 import { Variants, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useState, useCallback, memo, ReactNode } from "react"; // Added ReactNode
-
-// Updated type definition for AccordionItemType
+import { useState, useCallback, memo, ReactNode } from "react";
 type AccordionItemType = {
   title: string;
-  content: () => ReactNode; // Changed to function returning ReactNode
+  content: () => ReactNode;
 };
-
 interface AccordionItemProps extends AccordionItemType {
   isExpanded: boolean;
   onToggle: () => void;
   className?: string;
 }
-
 interface AccordionProps {
   items: AccordionItemType[];
 }
-
-// Variants remain unchanged
 const cardVariants: Variants = {
   collapsed: {
     height: "60px",
@@ -34,7 +27,6 @@ const cardVariants: Variants = {
     transition: { type: "tween", stiffness: 200, damping: 30 },
   },
 };
-
 const contentVariants: Variants = {
   collapsed: { opacity: 0, x: -30 },
   expanded: {
@@ -43,13 +35,10 @@ const contentVariants: Variants = {
     transition: { delay: 0.3, type: "tween", stiffness: 200, damping: 30 },
   },
 };
-
 const chevronVariants: Variants = {
   collapsed: { rotate: 0 },
   expanded: { rotate: 180, transition: { delay: 0.3 } },
 };
-
-// Updated AccordionItem to use function content
 const AccordionItem = memo<AccordionItemProps>(
   ({ title, content, isExpanded, className, onToggle }) => {
     return (
@@ -68,7 +57,8 @@ const AccordionItem = memo<AccordionItemProps>(
       >
         <div
           onClick={onToggle}
-          className={cn("cursor-pointer flex items-center justify-between p-4",
+          className={cn(
+            "cursor-pointer flex items-center justify-between p-4",
             isExpanded ? "" : ""
           )}
         >
@@ -95,16 +85,12 @@ const AccordionItem = memo<AccordionItemProps>(
     );
   }
 );
-
 AccordionItem.displayName = "AccordionItem";
-
 const Accordion: React.FC<AccordionProps> = ({ items }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
   const handleToggle = useCallback((index: number) => {
     setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
   }, []);
-
   return (
     <div className="z-10 flex flex-col items-start justify-start">
       {items.map((item, index) => (
@@ -119,5 +105,4 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
     </div>
   );
 };
-
 export default Accordion;

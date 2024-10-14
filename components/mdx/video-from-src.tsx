@@ -5,19 +5,21 @@ import { Icons } from "../icons";
 
 export default function VideoFromSrc({
   src,
-  title = "Video player",
+  title,
   className,
 }: {
   src: string;
-  title: string;
+  title?: string;
   className?: string;
 }) {
   const initial = {
-    width: "200px",
+    width: "500px",
+    height: "200px",
   };
 
   const animate = {
     width: "auto",
+    height: "auto",
     transition: {
       delay: 0.3,
       duration: 1,
@@ -42,11 +44,12 @@ export default function VideoFromSrc({
         whileInView={animate}
         initial={initial}
         className="absolute z-20 -bottom-2 -right-2 
-         min-w-max rounded-2xl p-3 pb-5 pr-5 text-sm font-medium bg-secondary
-          text-indigo-600 dark:text-lime-400 flex items-center gap-2
+         min-w-max min-h-max rounded-xl p-3 pb-5 pr-5 text-sm font-semibold bg-secondary
+          text-indigo-600 dark:text-lime-400 flex items-end justify-end gap-2
           "
       >
-        <Icons.chevronDown />  Image Card
+        <Icons.chevronDown className="w-6 h-6 stroke-[5px] group-hover:-rotate-[30deg] transition-transform duration-300 ease-in-out" />{" "}
+        {title}
       </motion.span>
     </div>
   );
