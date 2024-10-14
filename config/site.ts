@@ -55,7 +55,11 @@ export const siteConfig = {
         {
           name: "Pixel",
           href: "/components/blocks/pixel",
-        }
+        },
+        {
+          name: "Accordion",
+          href: "/components/blocks/accordion",
+        },
       ],
     },
     {
